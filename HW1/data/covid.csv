@@ -1,0 +1,177 @@
+id,sex,birth_year,country,region,infection_reason,infected_by,confirmed_date,state
+1,female,1984,China,filtered at airport,visit to Wuhan,,1/20/2020,released
+2,male,1964,Korea,filtered at airport,visit to Wuhan,,1/24/2020,released
+3,male,1966,Korea,capital area,visit to Wuhan,,1/26/2020,released
+4,male,1964,Korea,capital area,visit to Wuhan,,1/27/2020,released
+5,male,1987,Korea,capital area,visit to Wuhan,,1/30/2020,released
+6,male,1964,Korea,capital area,contact with patient,3,1/30/2020,released
+7,male,1991,Korea,capital area,visit to Wuhan,,1/30/2020,released
+8,female,1957,Korea,Jeollabuk-do,visit to Wuhan,,1/31/2020,released
+9,female,1992,Korea,capital area,contact with patient,5,1/31/2020,released
+10,female,1966,Korea,capital area,contact with patient,6,1/31/2020,released
+11,male,1995,Korea,capital area,contact with patient,6,1/31/2020,released
+12,male,1971,China,capital area,contact with patient in Japan,,2/1/2020,released
+13,male,1992,Korea,filtered at airport,residence in Wuhan,,2/2/2020,released
+14,female,1980,China,capital area,contact with patient,12,2/2/2020,released
+15,male,1977,Korea,capital area,contact with patient,4,2/2/2020,released
+16,female,1977,Korea,Gwangju,visit to Thailand,,2/4/2020,released
+17,male,1982,Korea,capital area,contact with patient in Singapore,,2/5/2020,released
+18,female,1999,Korea,Gwangju,contact with patient,16,2/5/2020,released
+19,male,1983,Korea,capital area,contact with patient in Singapore,,2/5/2020,released
+20,female,1978,Korea,capital area,contact with patient,15,2/5/2020,released
+21,female,1960,Korea,capital area,contact with patient,6,2/5/2020,released
+22,male,1973,Korea,Gwangju,contact with patient,16,2/6/2020,released
+23,female,1962,China,capital area,visit to Wuhan,,2/6/2020,released
+24,male,1992,Korea,filtered at airport,residence in Wuhan,,2/6/2020,released
+25,female,1946,Korea,capital area,contact with patient,27,2/9/2020,isolated
+26,male,1968,Korea,capital area,contact with patient,27,2/9/2020,isolated
+27,female,1982,China,capital area,visit to China,,2/9/2020,isolated
+28,female,1989,China,capital area,contact with patient,3,2/10/2020,released
+29,male,1938,Korea,capital area,contact with patient,83,2/16/2020,isolated
+30,female,1952,Korea,capital area,contact with patient,29,2/16/2020,isolated
+31,female,1959,Korea,Daegu,,,2/18/2020,isolated
+32,female,2009,Korea,capital area,contact with patient,20,2/18/2020,released
+33,female,1980,Korea,Daegu,contact with patient,31,2/18/2020,isolated
+34,male,1996,Korea,Daegu,,,2/18/2020,isolated
+35,female,1994,Korea,Daegu,,,2/18/2020,isolated
+36,female,1972,Korea,Daegu,,,2/18/2020,isolated
+37,male,1973,Korea,Gyeongsangbuk-do,,,2/18/2020,released
+38,female,1963,Korea,Daegu,,,2/18/2020,deceased
+39,female,1959,Korea,Gyeongsangbuk-do,,,2/18/2020,released
+40,male,1943,Korea,capital area,,,2/19/2020,isolated
+41,female,1951,Korea,Gyeongsangbuk-do,,,2/19/2020,isolated
+42,female,1991,Korea,Daegu,,,2/19/2020,isolated
+43,female,1962,Korea,Daegu,,,2/19/2020,isolated
+44,female,1974,Korea,Daegu,,,2/19/2020,isolated
+45,female,1966,Korea,Daegu,,,2/19/2020,isolated
+46,male,1992,Korea,Daegu,,,2/19/2020,isolated
+47,female,1957,Korea,Daegu,contact with patient,31,2/19/2020,isolated
+48,female,1948,Korea,Daegu,contact with patient,31,2/19/2020,isolated
+49,male,1962,Korea,Daegu,contact with patient,31,2/19/2020,isolated
+50,male,1944,Korea,Daegu,contact with patient,31,2/19/2020,released
+51,female,1959,Korea,Daegu,contact with patient,31,2/19/2020,released
+52,male,1996,Korea,,,,2/19/2020,isolated
+53,female,1982,Korea,Daegu,,,2/19/2020,isolated
+54,male,1963,Korea,Gyeongsangbuk-do,,,2/19/2020,deceased
+55,male,1961,Korea,Gyeongsangbuk-do,,,2/19/2020,deceased
+56,male,1945,Korea,capital area,contact with patient,83,2/19/2020,isolated
+57,female,1968,Korea,Daegu,,,2/20/2020,released
+58,female,1961,Korea,,,,2/19/2020,isolated
+59,female,1970,Korea,Daegu,,,2/19/2020,released
+60,male,1998,Korea,Gyeongsangbuk-do,visit to Daegu,,2/19/2020,isolated
+61,female,1990,Korea,Gyeongsangbuk-do,,,2/20/2020,isolated
+62,female,2000,Korea,Gyeongsangbuk-do,,,2/20/2020,isolated
+63,male,1971,Korea,,,,2/20/2020,isolated
+64,female,1997,Korea,,,,2/20/2020,isolated
+65,male,1984,Korea,,,,2/20/2020,isolated
+66,female,1963,Korea,,,,2/20/2020,isolated
+67,male,1965,Korea,,,,2/20/2020,isolated
+68,female,1998,Korea,Gyeongsangbuk-do,,,2/20/2020,isolated
+69,female,1986,Korea,,,,2/20/2020,isolated
+70,female,1955,Korea,,,,2/20/2020,isolated
+71,male,1956,Korea,,,,2/20/2020,isolated
+72,male,1944,Korea,capital area,contact with patient,6,2/20/2020,released
+73,male,1951,Korea,Daegu,,,2/20/2020,isolated
+74,female,1972,Korea,Gyeongsangbuk-do,,,2/20/2020,isolated
+75,male,1989,Korea,Daegu,,,2/20/2020,isolated
+76,female,1999,Korea,Daegu,,,2/20/2020,isolated
+77,female,1979,Korea,Daegu,,,2/20/2020,isolated
+78,female,1996,Korea,Daegu,,,2/20/2020,isolated
+79,female,1979,Korea,Daegu,,,2/20/2020,isolated
+80,female,1974,Korea,Gyeongsangbuk-do,visit to Daegu,,2/20/2020,isolated
+81,male,1957,Korea,Gyeongsangbuk-do,,,2/20/2020,deceased
+82,female,1965,Korea,Gyeongsangbuk-do,visit to Daegu,,2/21/2020,isolated
+83,female,1991,Korea,Gyeongsangbuk-do,visit to Daegu,,2/21/2020,isolated
+84,male,1953,Korea,Gyeongsangbuk-do,,,2/21/2020,deceased
+85,male,2000,Korea,capital area,,,2/21/2020,isolated
+86,female,1941,Korea,capital area,contact with patient,136,2/21/2020,isolated
+87,male,1992,Korea,Jeollabuk-do,visit to Daegu,,2/21/2020,isolated
+88,male,1946,Korea,Daegu,,,2/21/2020,deceased
+89,female,1944,Korea,capital area,contact with patient,40,2/21/2020,isolated
+90,male,1980,Korea,Gwangju,visit to Daegu,,2/21/2020,isolated
+91,male,1936,Korea,capital area,contact with patient,56,2/21/2020,isolated
+92,male,1998,Korea,Jeju-do,visit to Daegu,,2/21/2020,isolated
+93,female,1988,Korea,Daegu,contact with patient,31,2/21/2020,isolated
+94,male,1985,Korea,capital area,,,2/21/2020,isolated
+95,male,1987,Korea,Daegu,contact with patient,31,2/21/2020,isolated
+96,male,1989,Korea,Gwangju,contact with patient,126,2/21/2020,isolated
+97,male,1961,Korea,capital area,visit to Daegu,,2/21/2020,isolated
+98,male,2001,Korea,Busan,,,2/21/2020,isolated
+99,female,1965,Korea,Gyeongsangbuk-do,,,2/22/2020,deceased
+100,female,,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+101,male,1985,Korea,Gwangju,visit to Daegu,,2/22/2020,isolated
+102,female,1974,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+103,female,1998,Korea,Jeju-do,visit to Daegu,,2/22/2020,isolated
+104,male,1984,Korea,Jeollabuk-do,contact with patient,113,2/22/2020,isolated
+105,female,1963,Korea,Busan,,,2/22/2020,isolated
+106,female,1974,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+107,male,1968,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+108,male,1983,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+109,female,2000,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+110,male,1966,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+111,male,1985,Korea,Gwangju,visit to Daegu,,2/22/2020,isolated
+112,female,1978,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+113,female,1997,Korea,Daejeon,visit to Daegu,,2/22/2020,isolated
+114,female,1965,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+115,female,1946,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+116,female,1982,Korea,capital area,visit to Daegu,,2/22/2020,isolated
+117,male,1958,Korea,Gyeongsangbuk-do,,,2/22/2020,deceased
+118,male,1962,Korea,Gyeongsangbuk-do,,,2/22/2020,deceased
+119,male,1955,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+120,female,1943,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+121,female,1975,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+122,male,1984,Korea,Chungcheongbuk-do,contact with patient,230,2/22/2020,isolated
+123,female,1985,Korea,Chungcheongbuk-do,contact with patient,230,2/22/2020,isolated
+124,male,,Korea,Chungcheongnam-do,,,2/22/2020,isolated
+125,male,1996,Korea,capital area,,,2/22/2020,isolated
+126,male,1980,Korea,capital area,pilgrimage to Israel,,2/22/2020,isolated
+127,male,1959,Korea,capital area,,,2/22/2020,isolated
+128,male,1999,Korea,capital area,visit to Daegu,,2/22/2020,isolated
+129,male,1956,Korea,capital area,contact with patient,30,2/22/2020,isolated
+130,female,1993,Korea,Ulsan,visit to Daegu,,2/22/2020,isolated
+131,male,1958,Korea,capital area,contact with patient,161,2/22/2020,isolated
+132,male,1999,Korea,Gangwon-do,visit to Daegu,,2/22/2020,isolated
+133,female,1955,Korea,Daejeon,,,2/22/2020,isolated
+134,female,,Korea,Gangwon-do,visit to Daegu,,2/22/2020,isolated
+135,female,,Korea,Gangwon-do,visit to Daegu,,2/22/2020,isolated
+136,male,1995,Korea,Gyeongsangbuk-do,visit to Daegu,,2/22/2020,isolated
+137,male,1956,Korea,Gyeongsangbuk-do,pilgrimage to Israel,,2/22/2020,isolated
+138,male,1956,Korea,Gyeongsangbuk-do,pilgrimage to Israel,,2/22/2020,isolated
+139,female,1960,Korea,Gyeongsangbuk-do,pilgrimage to Israel,,2/22/2020,isolated
+140,female,1960,Korea,Gyeongsangbuk-do,pilgrimage to Israel,,2/22/2020,isolated
+141,male,1966,Korea,capital area,,,2/22/2020,isolated
+142,male,1987,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+143,female,1977,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+144,female,1996,Korea,Gyeongsangbuk-do,,,2/22/2020,isolated
+145,female,,Korea,Gangwon-do,visit to Daegu,,2/22/2020,isolated
+146,female,1960,Korea,capital area,visit to Daegu,,2/22/2020,isolated
+147,male,,Korea,Gangwon-do,,,2/22/2020,isolated
+148,male,1986,Korea,Daegu,visit to Daegu,,2/22/2020,isolated
+149,female,1954,Korea,capital area,,,2/22/2020,isolated
+150,female,1957,Korea,Gyeongsangbuk-do,pilgrimage to Israel,,2/23/2020,isolated
+151,female,1959,Korea,capital area,contact with patient,246,2/23/2020,isolated
+152,male,1979,Korea,Gyeongsangbuk-do,,,2/23/2020,deceased
+153,female,1965,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+154,male,,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+155,female,1968,Korea,capital area,contact with patient,347,2/23/2020,isolated
+156,male,1985,Korea,Gwangju,contact with patient,126,2/23/2020,isolated
+157,male,1974,Korea,capital area,visit to Daegu,,2/23/2020,isolated
+158,female,1962,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+159,female,1957,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+160,female,1977,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+161,male,1980,Korea,capital area,contact with patient,246,2/23/2020,isolated
+162,female,1969,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+163,male,1957,Korea,Daejeon,contact with patient,372,2/23/2020,isolated
+164,male,1997,Korea,capital area,visit to Daegu,,2/23/2020,isolated
+165,female,1985,Korea,Gwangju,contact with patient,126,2/23/2020,released
+166,male,,Korea,Gyeongsangbuk-do,,,2/23/2020,isolated
+167,male,1968,Korea,capital area,visit to Vietnam,,2/23/2020,isolated
+168,male,,Korea,Gyeongsangbuk-do,,,2/24/2020,isolated
+169,female,,Korea,Gyeongsangbuk-do,contact with patient,,2/24/2020,isolated
+170,female,1993,Korea,capital area,,,2/24/2020,isolated
+171,male,1985,Korea,Gwangju,contact with patient,164,2/24/2020,isolated
+172,female,1997,Korea,Gyeongsangbuk-do,,,2/24/2020,isolated
+173,male,1949,Korea,Daegu,,,2/24/2020,deceased
+174,female,1958,Korea,Gyeongsangbuk-do,,,2/24/2020,isolated
+175,male,1997,Korea,Gyeongsangbuk-do,,,2/24/2020,isolated
+176,female,1950,Korea,capital area,,,2/24/2020,isolated

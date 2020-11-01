@@ -13,4 +13,6 @@ There is a file named covid.csv that contains information about people suffering
 |-------|:------:|:---------:|:-------:|:-------:|:---------------:|:----------:|:-------------:|-------:|
 | 0 nan | 0 nan  |  10 nan   | 0 nan   | 10 nan  |     81 nan      |  134 nan   |      0 nan    |  0 nan |
 
+3. It is asked to find max, mean and std of the column birth_year<br/>
+the max is 2009<br/>
 

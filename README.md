@@ -15,4 +15,8 @@ There is a file named covid.csv that contains information about people suffering
 
 3. It is asked to find max, mean and std of the column birth_year<br/>
 the max is 2009<br/>
-
+Let me talk about finding mean, this column has null values and I can have different strategies facing them I calculated
+the mean using three ways:<br/>
+first: We can think that the null values don't exist and calculate the mean, mean() function of pandas dataframe does 
+that, the mean is 1973.3855<br/>
+second:

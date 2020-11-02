@@ -20,5 +20,16 @@ the mean using two ways:<br/>
 first: We can think that the null values don't exist and calculate the mean, mean() function of pandas dataframe does 
 that, the mean is 1973.3855<br/>
 second: I can change the pandas dataframe to a numpy array and then calculate the mean but the mean() function of numpy
-array ignore the null values so I have to substitute them with a number for example zero, the mean is 1861.2613
+array ignore the null values so I have to substitute them with a number for example zero, the mean is 1861.2613.<br/>
+everything I said about mean remains the same for std. I calculated std just using pandas dataframe std function<br/>
+std: 17.0328
 
+4.yes, null values exist in the dataset.<br/>
+The question is to remove the null values by a proper method but what the proper method?? if the dataset was huge and the
+null values were few I would remove the records which have null values but our case is completely the opposite so I should
+substitute the null values with a value. **pay attention**: sometimes a column contains null values that I don't want to 
+select in feature selection or I sometimes even use a method that can handle null values but in this question we assume
+that we don't want to put aside any column and our method cannot handle null values. In my opinion the best way to 
+substitute null values of **numerical** columns is to put the median value instead of them **Note**: I prefer to use median
+over mean cause it's more resistant to outliers. For **nominal** columns I substitute the null values with the most frequent
+value. 

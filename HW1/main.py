@@ -11,8 +11,12 @@ by = df["birth_year"]
 
 # print(by.max())
 
+# mean
 # first
 # print(by.mean())
 
 # second
 # print(by.fillna(0).to_numpy().mean())
+
+# std
+# print(by.std())

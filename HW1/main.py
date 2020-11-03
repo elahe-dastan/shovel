@@ -1,4 +1,7 @@
 import pandas as pd
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
 
 df = pd.read_csv("data/covid.csv")
 # print(df)
@@ -20,3 +23,17 @@ by = df["birth_year"]
 
 # std
 # print(by.std())
+
+numerical_columns = ["birth_year", "infected_by", "confirmed_date"]
+nominal_columns = ["id", "sex", "country", "region", "infection_reason", "state"]
+
+nan_transformer = ColumnTransformer([
+    ("numerical", SimpleImputer(strategy="median"), numerical_columns),
+    ("nominal", SimpleImputer(strategy="most_frequent"), nominal_columns),
+])
+
+df['confirmed_date'] = pd.to_datetime(df['confirmed_date'], format='%d/%m/%y')
+print(df)
+
+# data = nan_transformer.fit_transform(df)
+# print(data)

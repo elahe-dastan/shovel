@@ -32,4 +32,8 @@ select in feature selection or I sometimes even use a method that can handle nul
 that we don't want to put aside any column and our method cannot handle null values. In my opinion the best way to 
 substitute null values of **numerical** columns is to put the median value instead of them **Note**: I prefer to use median
 over mean cause it's more resistant to outliers. For **nominal** columns I substitute the null values with the most frequent
-value. 
+value.<br/>
+**trouble alert**: There is column in our dataset that has date time values, it's logical to use median strategy for this
+column but the SimpleImputer class that I use considers this column as string and cannot find the median I thought of two
+solutions, I can find the median `df['confirmed_date'].astype('datetime64[ns]').quantile(.5)` and then use SimpleImputer
+with constant strategy or I can convert the column to timestamp before passing it to SimpleImputer.

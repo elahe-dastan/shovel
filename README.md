@@ -36,4 +36,5 @@ value.<br/>
 **trouble alert**: There is column in our dataset that has date time values, it's logical to use median strategy for this
 column but the SimpleImputer class that I use considers this column as string and cannot find the median I thought of two
 solutions, I can find the median `df['confirmed_date'].astype('datetime64[ns]').quantile(.5)` and then use SimpleImputer
-with constant strategy or I can convert the column to timestamp before passing it to SimpleImputer.
+with constant strategy or I can convert the column to timestamp before passing it to SimpleImputer, the second approach 
+is easier.

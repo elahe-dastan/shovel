@@ -24,6 +24,8 @@ by = df["birth_year"]
 # std
 # print(by.std())
 
+df['confirmed_date'] = pd.to_datetime(df['confirmed_date']).astype(int) / 10**9
+
 numerical_columns = ["birth_year", "infected_by", "confirmed_date"]
 nominal_columns = ["id", "sex", "country", "region", "infection_reason", "state"]
 
@@ -32,8 +34,5 @@ nan_transformer = ColumnTransformer([
     ("nominal", SimpleImputer(strategy="most_frequent"), nominal_columns),
 ])
 
-df['confirmed_date'] = pd.to_datetime(df['confirmed_date'], format='%d/%m/%y')
-print(df)
-
-# data = nan_transformer.fit_transform(df)
-# print(data)
+preprocessed_df = nan_transformer.fit_transform(df)
+print(preprocessed_df)

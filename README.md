@@ -60,3 +60,9 @@ In any distribution, about 95% of values will be within 2 standard deviations of
 Based on this, any absolute value of z-score above 3 is considered as an outlier.<br/>
 Z-score is calculated by substracting the mean and dividing by std<br/>
 I treat with outliers like null values and substitute them with median
+
+### linear regression
+While reading the dataset using pandas I found out there are ';' instead of ',' so I wrote a bash script to solve this 
+problem<br/>
+1. I split the dataset to train and test
+

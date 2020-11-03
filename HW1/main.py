@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
-from scipy import stats
+import numpy as np
 
 df = pd.read_csv("data/covid.csv")
 # print(df)
@@ -35,7 +35,7 @@ nan_transformer = ColumnTransformer([
     ("nominal", SimpleImputer(strategy="most_frequent"), nominal_columns),
 ])
 
-# preprocessed_df = nan_transformer.fit_transform(df)
+preprocessed_df = nan_transformer.fit_transform(df)
 # print(preprocessed_df)
 
 # plt.hist(df['birth_year'])
@@ -49,5 +49,15 @@ nan_transformer = ColumnTransformer([
 
 pd.plotting.scatter_matrix(df, alpha=0.2)
 
-# "", "infected_by", "confirmed_date"
-df["birth_year"] = stats.zscore(df["birth_year"])
+
+# detect and remove outliers for 'confirmed_date'
+# Note: the exact same thing below can be done for 'birth_year' and 'infected_by' columns too
+cd_mean = df['confirmed_date'].mean()
+cd_std = df['confirmed_date'].std()
+
+cd_z_score = (df['confirmed_date'] - cd_mean) / cd_std
+
+cd_median = df['confirmed_date'].median()
+
+cd = np.where(cd_z_score.abs() > 3, cd_median, df['confirmed_date'])
+

@@ -1,7 +1,7 @@
 import pandas as pd
-from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("data/covid.csv")
 # print(df)
@@ -34,5 +34,11 @@ nan_transformer = ColumnTransformer([
     ("nominal", SimpleImputer(strategy="most_frequent"), nominal_columns),
 ])
 
-preprocessed_df = nan_transformer.fit_transform(df)
-print(preprocessed_df)
+# preprocessed_df = nan_transformer.fit_transform(df)
+# print(preprocessed_df)
+
+plt.hist(df['birth_year'])
+plt.show()
+
+plt.hist(df['infected_by'])
+plt.show()

@@ -41,4 +41,22 @@ is easier.
 
 5. visualize data<b/>
 First, I want to plot the histogram of some columns, I think the birth year and infected by columns are the most appropriate
-and plotting the histogram of the other columns don't give us any information (for example id column :joy:)
+and plotting the histogram of the other columns don't give us any information (for example id column :joy:).<br/>
+Second, I'd like to plot a scatter plot so I need to choose two columns, let's find the correlation between birth_year and
+confirmed_date
+
+6. Here we like to detect and remove outliers, even if you have not studied a single book you may think of sorting or
+visualizing the data and easily seen and remove outliers for datasets like the one we have in here this approach really 
+works but most of the time the dataset is huge and you may prefer more automatic ways like:<br/>
+1. Inter Quartile Range (IQR): Look at the code below 
+```sh
+import numpy as np
+Q1 = np.quantile(data,0.25)
+Q3 = np.quantile(data,0.75)
+IQR = Q3 - Q1
+```
+2. Z-Score<br/>
+In any distribution, about 95% of values will be within 2 standard deviations of the mean and 99.7% of the data within 3.
+Based on this, any absolute value of z-score above 3 is considered as an outlier.<br/>
+Z-score is calculated by substracting the mean and dividing by std<br/>
+I treat with outliers like null values and substitute them with median

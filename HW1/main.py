@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
+from scipy import stats
 
 df = pd.read_csv("data/covid.csv")
 # print(df)
@@ -37,8 +38,16 @@ nan_transformer = ColumnTransformer([
 # preprocessed_df = nan_transformer.fit_transform(df)
 # print(preprocessed_df)
 
-plt.hist(df['birth_year'])
-plt.show()
+# plt.hist(df['birth_year'])
+# plt.show()
+#
+# plt.hist(df['infected_by'])
+# plt.show()
 
-plt.hist(df['infected_by'])
-plt.show()
+# plt.scatter(df["birth_year"], df["confirmed_date"])
+# plt.show()
+
+pd.plotting.scatter_matrix(df, alpha=0.2)
+
+# "", "infected_by", "confirmed_date"
+df["birth_year"] = stats.zscore(df["birth_year"])

@@ -39,7 +39,7 @@ solutions, I can find the median `df['confirmed_date'].astype('datetime64[ns]').
 with constant strategy or I can convert the column to timestamp before passing it to SimpleImputer, the second approach 
 is easier.
 
-5. visualize data<b/>
+5. visualize data<br/>
 First, I want to plot the histogram of some columns, I think the birth year and infected by columns are the most appropriate
 and plotting the histogram of the other columns don't give us any information (for example id column :joy:).<br/>
 Second, I'd like to plot a scatter plot so I need to choose two columns, let's find the correlation between birth_year and
@@ -85,5 +85,8 @@ it's not correct.Mjob, Fjob, reason and guardian of our dataset are form this gr
 this strategy converts each category value into a new column and assigns a 1 or 0 (True/False) value to the column
 
 
-4.
+4. Predict test data
+5. Find accuracy<br/>
+I use mean squared error for this purpose, the mse was 5.7495
+ 
 

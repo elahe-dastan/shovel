@@ -69,5 +69,21 @@ problem<br/>
 3 fit a linear regression model (as easy as a piece of cake) **Note**: we have nominal columns in our dataset which 
 obviously linear regression cannot handle so we should transform these nominal values to numerical value before fitting 
 the model
+##### Encoding
+Let me explain how I think completely, our nominal columns are school, sex, address, femsize, Pstatus, Mjob, Fjob, reason,
+guardian, schoolsup, famsup, paid, activities, nursery, higher, internet, romantic.<br/>
+the categorical attributes generally fall into three groups (it's my grouping):<br/>
+1. binary: they can have only two possible values we can consider one them as zero and the other as one, in our dataset 
+these are binary: school, sex, address, femsize, Pstatus, schoolsup, famsup, paid, activities, nursery, higher, internet, romantic
+2. ordinal: they can have multiple categorical values but you can see an order among them for example
+Like,Like Somewhat,Neutral,Dislike Somewhat,Dislike, it's obviously seen that 'Like' is much closer to 'Like Somewhat' than 
+'Dislike' so the differentiate of the numbers I assign to 'Like' and 'Like Somewhat' should be less than the differentiate 
+of 'Like' and 'Dislike' (you get the point!) none of our attributes is ordinal
+3. nothing : they can have multiple categorical values but there is no order, in this case it's not reasonable to assign 
+numerical values to the values cause the values which get closer numbers will have lower distance from each other though 
+it's not correct.Mjob, Fjob, reason and guardian of our dataset are form this group **Solution**: we can use OneHotEncoding,
+this strategy converts each category value into a new column and assigns a 1 or 0 (True/False) value to the column
+
+
 4.
 

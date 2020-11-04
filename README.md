@@ -64,5 +64,6 @@ I treat with outliers like null values and substitute them with median
 ### linear regression
 While reading the dataset using pandas I found out there are ';' instead of ',' so I wrote a bash script to solve this 
 problem<br/>
-1. I split the dataset to train and test
+1. I extract G3 as Y
+2. I split the dataset to train and test
 

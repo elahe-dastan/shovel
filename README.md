@@ -66,4 +66,8 @@ While reading the dataset using pandas I found out there are ';' instead of ',' 
 problem<br/>
 1. I extract G3 as Y
 2. I split the dataset to train and test
+3 fit a linear regression model (as easy as a piece of cake) **Note**: we have nominal columns in our dataset which 
+obviously linear regression cannot handle so we should transform these nominal values to numerical value before fitting 
+the model
+4.
 

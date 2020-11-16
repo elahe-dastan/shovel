@@ -89,4 +89,6 @@ this strategy converts each category value into a new column and assigns a 1 or 
 5. Find accuracy<br/>
 I use mean squared error for this purpose, the mse was 5.7495
  
+ 
+# HW2
 

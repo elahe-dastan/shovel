@@ -91,4 +91,13 @@ I use mean squared error for this purpose, the mse was 5.7495
  
  
 # HW2
+##### 1. Read the dataset using pandas library
 
+![](titanic.png)
+
+##### 2. Do something about the null values
+I may change my opinion in future but with the knowledge I have right now I guess the best way is to replace the null 
+values of the embarked column with the mode of the column (it has only 2 null values and replacing mode can be a good guess),
+It's hard to say which column is more important in our prediction at the moment but I guess age can affect our prediction
+a lot so I try not to remove the column and I use median values for the null ones but the null values of the "cabin" column
+is so many that I think the column doesn't worth keeping. 

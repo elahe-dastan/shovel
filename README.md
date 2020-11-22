@@ -91,13 +91,50 @@ I use mean squared error for this purpose, the mse was 5.7495
  
  
 # HW2
-##### 1. Read the dataset using pandas library
+#### 1. Read the dataset using pandas library
 
 ![](titanic.png)
 
-##### 2. Do something about the null values
+#### 2. Do something about the null values
 I may change my opinion in future but with the knowledge I have right now I guess the best way is to replace the null 
 values of the embarked column with the mode of the column (it has only 2 null values and replacing mode can be a good guess),
 It's hard to say which column is more important in our prediction at the moment but I guess age can affect our prediction
 a lot so I try not to remove the column and I use median values for the null ones but the null values of the "cabin" column
 is so many that I think the column doesn't worth keeping. 
+
+#### 3. Get deeper to the dataset
+It's silly that "PassengerId" affect our prediction!!! I prefer to drop these columns
+
+#### non numerical columns and decision tree
+We'd like to use a decision tree to classify passengers and the decision tree classifier from sklearn library cannot work
+with categorical values so we have to transform the categorical columns to numerical. I divide categorical columns into 
+two groups, the ones which we can arrange in an order and the ones which we cannot. I use ordinal encoder for the first
+group and one hot encoder for the second one. Now let's take a look at the categorical columns:<br/>
+##### Name : 
+At first I thought of dropping this column, how can names affect our prediction??!! no body stays alive because of
+his/her name but it's a little trickier I found two points hidden in names first: we can find families using names and 
+cause families travel together it's probable to say they all survive together or they all not, second: some words like
+Miss. and Mrs. are specified in this column which gives us a sense to estimate his/her age so we can fill the null values
+in the age column in a more proper way. We Asians may not be familiar with western names I've searched for it and write 
+some points for you.<br/>
+Look at this example:<br/>
+**Baclini,Mrs.Solomon (Latifa Qurban)**<br/>
+**Mrs.** indicates that she is married<br/>
+**Solomon** is the name of her husband. This is an old-ish custom where wives can be referred to by therir husband names. 
+For instance, if Jane Smith was married to John Smith, she could be referred to as Mrs.John Smith.<br/>
+**Latifa** is her first name.<br/>
+**Qurban** is her "maiden" name. This is the last name that she had before getting married.<br/>
+**Baclini** is her married last name(the last name of her husband)<br/>
+I take another example:<br/>
+**Baclini,Miss.Marie Catherine**<br/>
+Miss indicates that she is unmarried.<br/>
+In this **Marie** is her first name, **Catherine** is her middle name and **Baclini** is the last name.<br/>
+**Mr.** (for men of all the ages)<br/>
+**Master.** (for male children)<br/>
+We have other words like Dr., Sir., Col. and ... it's hard to separate each of them apart so I call all of them 
+professional and i guess their age should be relatively high 
+
+Sex : There is no sex order but this column takes only two values so I prefer to use ordinal encoder over one hot encoder
+which increases the number of my columns.    
+Ticket
+Embarked

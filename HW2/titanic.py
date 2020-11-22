@@ -10,8 +10,8 @@ train_data = pd.read_csv("data/train.csv")
 # Fix null values
 
 # null age --> median
-age = train_data['Age']
-age.fillna(age.median, inplace=True)
+# age = train_data['Age']
+# age.fillna(age.median(), inplace=True)
 
 # null embarked --> mode
 embarked = train_data['Embarked']
@@ -35,14 +35,25 @@ for name in names:
 # add honorific column
 train_data['Honorific'] = honorifics
 
-sys.setrecursionlimit(len(set(honorifics)) * len(honorifics) * 2)
-
 # find age average for each honorific
+honorific_dict = {}
+
 for honorific in set(honorifics):
-    print(honorific)
-    for index, row in train_data.iterrows():
-        if row['Honorific'] == honorific:
-            print(row['Honorific'], row['Age'])
+    honorific_dict[honorific + '_num'] = 0
+    honorific_dict[honorific + '_sum'] = 0
+
+for index, row in train_data.iterrows():
+    if pd.notnull(row['Age']):
+        honorific_dict[row['Honorific'] + '_num'] += 1
+        honorific_dict[row['Honorific'] + '_sum'] += row['Age']
+
+for honorific in set(honorifics):
+    honorific_dict[honorific + '_avg'] = honorific_dict[honorific + '_sum']/honorific_dict[honorific + '_num']
+
+for index, row in train_data.iterrows():
+    if not pd.notnull(row['Age']):
+        train_data['Age'][index] = honorific_dict[row['Honorific'] + '_avg']
+
 
 Y = train_data['Survived']
 X = train_data.drop('Survived', axis=1)

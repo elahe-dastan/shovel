@@ -132,7 +132,9 @@ In this **Marie** is her first name, **Catherine** is her middle name and **Bacl
 **Mr.** (for men of all the ages)<br/>
 **Master.** (for male children)<br/>
 We have other words like Dr., Sir., Col. and ... it's hard to separate each of them apart so I call all of them 
-professional and i guess their age should be relatively high 
+professional and I guess their age should be relatively high.<br/>
+Let's sum it up I think first name and middle name have nothing to do with the passenger's survival but the last name can
+help us find out families and the Mr. etc. words help us fill null ages
 
 Sex : There is no sex order but this column takes only two values so I prefer to use ordinal encoder over one hot encoder
 which increases the number of my columns.    

@@ -3,8 +3,8 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 # Read data
-train_data = pd.read_csv("data/train.csv")
-# print(train_data.info())
+train_data = pd.read_csv("data/train.csv", index_col='PassengerId')
+print(train_data.info())
 
 # Fix null values
 
@@ -14,10 +14,6 @@ embarked.fillna(embarked.mode()[0], inplace=True)
 
 # drop cabin
 train_data = train_data.drop('Cabin', axis=1)
-
-# drop passenger id
-train_data = train_data.drop('PassengerId', axis=1)
-# print(train_data.info())
 
 # extracting honorifics
 names = train_data['Name']

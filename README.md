@@ -103,7 +103,6 @@ a lot so I try not to remove the column and I use median values for the null one
 is so many that I think the column doesn't worth keeping. 
 
 #### 3. Get deeper to the dataset
-It's silly that "PassengerId" affect our prediction!!! I prefer to drop these columns
 
 #### non numerical columns and decision tree
 We'd like to use a decision tree to classify passengers and the decision tree classifier from sklearn library cannot work
@@ -141,6 +140,6 @@ consider their married last name.
 <!-- I don't separate last names for now this will make so many columns -->
 
 Sex : There is no sex order but this column takes only two values so I prefer to use ordinal encoder over one hot encoder
-which increases the number of my columns.    
-Ticket
+which increases the number of my columns.<br/>    
+Ticket : the people with the same ticket number are traveling together
 Embarked

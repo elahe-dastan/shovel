@@ -1,6 +1,5 @@
 import pandas as pd
-import re
-import sys
+from sklearn.preprocessing import OrdinalEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 # Read data
@@ -8,10 +7,6 @@ train_data = pd.read_csv("data/train.csv")
 # print(train_data.info())
 
 # Fix null values
-
-# null age --> median
-# age = train_data['Age']
-# age.fillna(age.median(), inplace=True)
 
 # null embarked --> mode
 embarked = train_data['Embarked']
@@ -50,13 +45,22 @@ for index, row in train_data.iterrows():
 for honorific in set(honorifics):
     honorific_dict[honorific + '_avg'] = honorific_dict[honorific + '_sum']/honorific_dict[honorific + '_num']
 
+# null age --> median
 for index, row in train_data.iterrows():
     if not pd.notnull(row['Age']):
         train_data['Age'][index] = honorific_dict[row['Honorific'] + '_avg']
 
+train_data = train_data.drop('Honorific', axis=1).drop('Name', axis=1)
+
+sex_to_num = OrdinalEncoder()
+train_data[['Sex']] = sex_to_num.fit_transform(train_data[['Sex']])
+
+print(train_data.info())
 
 Y = train_data['Survived']
 X = train_data.drop('Survived', axis=1)
+
+
 
 # tree = DecisionTreeClassifier(max_depth=5)
 # tree.fit(X, Y)

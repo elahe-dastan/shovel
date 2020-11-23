@@ -134,7 +134,11 @@ In this **Marie** is her first name, **Catherine** is her middle name and **Bacl
 We have other words like Dr., Sir., Col. and ... it's hard to separate each of them apart so I call all of them 
 professional and I guess their age should be relatively high.<br/>
 Let's sum it up I think first name and middle name have nothing to do with the passenger's survival but the last name can
-help us find out families and the Mr. etc. words help us fill null ages
+help us find out families and the Mr. etc. words help us fill null ages.<br/>
+**Note**: Finding last name for married women is tricky actually they have two last names and those are both important 
+cause they may have a trip with their husband or parents. I may change my code in future but to make it simple I just 
+consider their married last name. 
+<!-- I don't separate last names for now this will make so many columns -->
 
 Sex : There is no sex order but this column takes only two values so I prefer to use ordinal encoder over one hot encoder
 which increases the number of my columns.    

@@ -51,12 +51,26 @@ train_data = train_data.drop('Honorific', axis=1).drop('Name', axis=1)
 sex_to_num = OrdinalEncoder()
 train_data[['Sex']] = sex_to_num.fit_transform(train_data[['Sex']])
 
+# for now I assign -1 to LINES (time problem)
+# for now I don't care about tkt pref (time problem)
+tickets = train_data['Ticket']
+tktNum = []
+for ticket in tickets:
+    if ticket == 'LINE':
+        tktNum.append(-1)
+    else:
+        splits = ticket.split()
+        tktNum.append(int(splits[len(splits) - 1]))
+
+train_data['TktNum'] = tktNum
+
+train_data = train_data.drop('Ticket', axis=1)
+
 print(train_data.info())
+
 
 Y = train_data['Survived']
 X = train_data.drop('Survived', axis=1)
-
-
 
 # tree = DecisionTreeClassifier(max_depth=5)
 # tree.fit(X, Y)

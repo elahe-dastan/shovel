@@ -141,5 +141,8 @@ consider their married last name.
 
 Sex : There is no sex order but this column takes only two values so I prefer to use ordinal encoder over one hot encoder
 which increases the number of my columns.<br/>    
-Ticket : the people with the same ticket number are traveling together
+Ticket : Tickets have 1. an optional string prefix and 2. a number except for the special cases Ticket='LINE. Ticket prefix 
+tells you who the issuing ticket office and/or embarkation point was. Ticket number can be compared for equality that
+tells you who were sharing a cabin or travelling together, or compared for closeness. The ticket = LINE have been assigned 
+to a group of American Line employees for free 
 Embarked

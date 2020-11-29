@@ -3,9 +3,32 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
 
-# Read data
+
+def extract_ticket_number(tickets):
+    tktNum = []
+    for ticket in tickets:
+        if ticket == 'LINE':
+            tktNum.append(-1)
+        else:
+            splits = ticket.split()
+            tktNum.append(int(splits[len(splits) - 1]))
+
+    return tktNum
+
+
+def encode_embarkation(dataset):
+    embarked_1hot_encoder = OneHotEncoder()
+    transformed_embarked = embarked_1hot_encoder.fit_transform(dataset[['Embarked']])
+
+    for i in range(len(embarked_1hot_encoder.categories_[0])):
+        dataset[embarked_1hot_encoder.categories_[0][i]] = transformed_embarked.toarray()[:, i]
+
+
+# Read train data
 train_data = pd.read_csv("data/train.csv", index_col='PassengerId')
-print(train_data.info())
+
+# Read test data
+test_data = pd.read_csv("data/test.csv", index_col='PassengerId')
 
 # Fix null values
 
@@ -15,6 +38,7 @@ embarked.fillna(embarked.mode()[0], inplace=True)
 
 # drop cabin
 train_data = train_data.drop('Cabin', axis=1)
+test_data = test_data.drop('Cabin', axis=1)
 
 # extracting honorifics
 names = train_data['Name']
@@ -40,7 +64,7 @@ for index, row in train_data.iterrows():
         honorific_dict[row['Honorific'] + '_sum'] += row['Age']
 
 for honorific in set(honorifics):
-    honorific_dict[honorific + '_avg'] = honorific_dict[honorific + '_sum']/honorific_dict[honorific + '_num']
+    honorific_dict[honorific + '_avg'] = honorific_dict[honorific + '_sum'] / honorific_dict[honorific + '_num']
 
 # null age --> median
 for index, row in train_data.iterrows():
@@ -48,37 +72,32 @@ for index, row in train_data.iterrows():
         train_data['Age'][index] = honorific_dict[row['Honorific'] + '_avg']
 
 train_data = train_data.drop('Honorific', axis=1).drop('Name', axis=1)
+test_data = test_data.drop('Name', axis=1)
 
 sex_to_num = OrdinalEncoder()
 train_data[['Sex']] = sex_to_num.fit_transform(train_data[['Sex']])
+test_data[['Sex']] = sex_to_num.fit_transform(test_data[['Sex']])
 
 # for now I assign -1 to LINES (time problem)
 # for now I don't care about tkt pref (time problem)
 tickets = train_data['Ticket']
-tktNum = []
-for ticket in tickets:
-    if ticket == 'LINE':
-        tktNum.append(-1)
-    else:
-        splits = ticket.split()
-        tktNum.append(int(splits[len(splits) - 1]))
-
+tktNum = extract_ticket_number(tickets)
 train_data['TktNum'] = tktNum
 
+tickets = test_data['Ticket']
+tktNum = extract_ticket_number(tickets)
+test_data['TktNum'] = tktNum
+
 train_data = train_data.drop('Ticket', axis=1)
+test_data = test_data.drop('Ticket', axis=1)
 
-
-embarked_1hot_encoder = OneHotEncoder()
-transformed_embarked = embarked_1hot_encoder.fit_transform(train_data[['Embarked']])
-
-for i in range(len(embarked_1hot_encoder.categories_[0])):
-    train_data[embarked_1hot_encoder.categories_[0][i]] = transformed_embarked.toarray()[:, i]
-
-print(train_data.info())
-
+encode_embarkation(train_data)
+encode_embarkation(test_data)
 
 Y = train_data['Survived']
 X = train_data.drop('Survived', axis=1)
 
-# tree = DecisionTreeClassifier(max_depth=5)
-# tree.fit(X, Y)
+tree = DecisionTreeClassifier(max_depth=10)
+tree.fit(X, Y)
+
+# Evaluation

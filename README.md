@@ -144,5 +144,8 @@ which increases the number of my columns.<br/>
 Ticket : Tickets have 1. an optional string prefix and 2. a number except for the special cases Ticket='LINE. Ticket prefix 
 tells you who the issuing ticket office and/or embarkation point was. Ticket number can be compared for equality that
 tells you who were sharing a cabin or travelling together, or compared for closeness. The ticket = LINE have been assigned 
-to a group of American Line employees for free 
-Embarked
+to a group of American Line employees for free
+# Pressure time
+I' m now under a lot of pressure so can't write a good readme I hope I can come back 
+Embarked: I think there is no order --> one hot encoder
+Embarked has 3 values 'C', 'Q', 'S'

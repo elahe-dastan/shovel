@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 # Read data
@@ -65,6 +66,13 @@ for ticket in tickets:
 train_data['TktNum'] = tktNum
 
 train_data = train_data.drop('Ticket', axis=1)
+
+
+embarked_1hot_encoder = OneHotEncoder()
+transformed_embarked = embarked_1hot_encoder.fit_transform(train_data[['Embarked']])
+
+for i in range(len(embarked_1hot_encoder.categories_[0])):
+    train_data[embarked_1hot_encoder.categories_[0][i]] = transformed_embarked.toarray()[:, i]
 
 print(train_data.info())
 

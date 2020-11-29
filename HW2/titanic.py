@@ -24,6 +24,17 @@ def encode_embarkation(dataset):
         dataset[embarked_1hot_encoder.categories_[0][i]] = transformed_embarked.toarray()[:, i]
 
 
+def extract_honorific(dataset):
+    names = dataset['Name']
+    honorifics = []
+    for name in names:
+        start = name.find(',') + 1
+        end = name.find('.')
+        honorifics.append(name[start:end])
+
+    return honorifics
+
+
 # Read train data
 train_data = pd.read_csv("data/train.csv", index_col='PassengerId')
 
@@ -41,12 +52,7 @@ train_data = train_data.drop('Cabin', axis=1)
 test_data = test_data.drop('Cabin', axis=1)
 
 # extracting honorifics
-names = train_data['Name']
-honorifics = []
-for name in names:
-    start = name.find(',') + 1
-    end = name.find('.')
-    honorifics.append(name[start:end])
+honorifics = extract_honorific(train_data)
 
 # add honorific column
 train_data['Honorific'] = honorifics
@@ -94,10 +100,18 @@ test_data = test_data.drop('Ticket', axis=1)
 encode_embarkation(train_data)
 encode_embarkation(test_data)
 
+train_data = train_data.drop('Embarked', axis=1)
+test_data = test_data.drop('Embarked', axis=1)
+
 Y = train_data['Survived']
 X = train_data.drop('Survived', axis=1)
+
+print(train_data.info())
 
 tree = DecisionTreeClassifier(max_depth=10)
 tree.fit(X, Y)
 
+print(test_data.info())
+
 # Evaluation
+# print(tree.predict(test_data))

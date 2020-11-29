@@ -149,3 +149,11 @@ to a group of American Line employees for free
 I' m now under a lot of pressure so can't write a good readme I hope I can come back 
 Embarked: I think there is no order --> one hot encoder
 Embarked has 3 values 'C', 'Q', 'S'
+
+## How to handle missing values in the test dataset???
+I fill them the way I did in train dataset
+
+## What if I see something completely new in the test dataset
+In this dataset we had so many null values in the age column, to fill them I extracted the honorifics and said ...
+"the average age of Mr is this and the average age of Miss is that" now what shall I do if I see the honorific Dr with
+null age in the test dataset

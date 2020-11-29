@@ -157,3 +157,6 @@ I fill them the way I did in train dataset
 In this dataset we had so many null values in the age column, to fill them I extracted the honorifics and said ...
 "the average age of Mr is this and the average age of Miss is that" now what shall I do if I see the honorific Dr with
 null age in the test dataset
+
+## sklearn accuracy score
+I don't know how sklearn.metrics.accuracy_score computes accuracy and have no time to check it but it's a question

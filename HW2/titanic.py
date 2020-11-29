@@ -51,7 +51,11 @@ embarked.fillna(embarked.mode()[0], inplace=True)
 train_data = train_data.drop('Cabin', axis=1)
 test_data = test_data.drop('Cabin', axis=1)
 
+
 # extracting honorifics
+honorifics = extract_honorific(test_data)
+test_data['Honorific'] = honorifics
+
 honorifics = extract_honorific(train_data)
 
 # add honorific column
@@ -77,8 +81,12 @@ for index, row in train_data.iterrows():
     if not pd.notnull(row['Age']):
         train_data['Age'][index] = honorific_dict[row['Honorific'] + '_avg']
 
+for index, row in test_data.iterrows():
+    if not pd.notnull(row['Age']):
+        test_data['Age'][index] = honorific_dict[row['Honorific'] + '_avg']
+
 train_data = train_data.drop('Honorific', axis=1).drop('Name', axis=1)
-test_data = test_data.drop('Name', axis=1)
+test_data = test_data.drop('Honorific', axis=1).drop('Name', axis=1)
 
 sex_to_num = OrdinalEncoder()
 train_data[['Sex']] = sex_to_num.fit_transform(train_data[['Sex']])
@@ -111,7 +119,11 @@ print(train_data.info())
 tree = DecisionTreeClassifier(max_depth=10)
 tree.fit(X, Y)
 
+fare_median = train_data['Fare'].median()
+
+test_data['Fare'].fillna(value=fare_median, inplace=True)
+
 print(test_data.info())
 
 # Evaluation
-# print(tree.predict(test_data))
+print(tree.predict(test_data))

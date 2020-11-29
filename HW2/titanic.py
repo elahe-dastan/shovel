@@ -2,6 +2,8 @@ import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.tree import export_graphviz
 
 
 def extract_ticket_number(tickets):
@@ -116,7 +118,7 @@ X = train_data.drop('Survived', axis=1)
 
 print(train_data.info())
 
-tree = DecisionTreeClassifier(max_depth=10)
+tree = DecisionTreeClassifier(max_depth=5)
 tree.fit(X, Y)
 
 fare_median = train_data['Fare'].median()
@@ -125,5 +127,20 @@ test_data['Fare'].fillna(value=fare_median, inplace=True)
 
 print(test_data.info())
 
+# Y = test_data['Survived']
+# X = test_data.drop('Survived', axis=1)
+
 # Evaluation
-print(tree.predict(test_data))
+print(tree.predict(X))
+
+# accuracy_score()
+export_graphviz(
+    tree,
+    out_file="decision_tree.dot",
+    feature_names=X.columns.values.tolist(),
+    class_names=["dead", "survived"],
+    rounded=True,
+    filled=True
+)
+
+

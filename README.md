@@ -90,7 +90,7 @@ this strategy converts each category value into a new column and assigns a 1 or 
 I use mean squared error for this purpose, the mse was 5.7495
  
  
-# HW2
+# HW2 Q6
 #### 1. Read the dataset using pandas library
 
 ![](titanic.png)
@@ -165,3 +165,19 @@ I don't know how sklearn.metrics.accuracy_score computes accuracy and have no ti
 
 # Different criterion
 The default criterion of decision tree is gini I gave a try to entropy
+
+# HW2 Q7
+working on heart-disease-uci
+
+age,
+sex,
+cp : chest pain type,
+trestbps : resting blood pressure (in mm Hg on admission to the hospital),
+chol : serum cholestoral in mg/dl,
+fbs : fasting blood sugar &gt; 120 mg/dl (1 = true; 0 = false),
+restecg : resting electrocardiographic results,
+thalach : maximum heart rate achieved,
+exang : exercise induced angina,
+oldpeak : ST depression induced by exercise relative to rest,
+slope : the slope of the peak exercise ST segment,
+ca,thal,target

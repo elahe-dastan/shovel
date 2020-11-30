@@ -38,10 +38,10 @@ def extract_honorific(dataset):
 
 
 # Read train data
-train_data = pd.read_csv("data/train.csv", index_col='PassengerId')
+train_data = pd.read_csv("Q6/data/train.csv", index_col='PassengerId')
 
 # Read test data
-test_data = pd.read_csv("data/test.csv", index_col='PassengerId')
+test_data = pd.read_csv("Q6/data/test.csv", index_col='PassengerId')
 
 # Fix null values
 
@@ -131,13 +131,13 @@ print(test_data.info())
 # Evaluation
 survived_prediction = tree.predict(test_data)
 
-survived_true = pd.read_csv("data/gender_submission.csv", index_col='PassengerId')
+survived_true = pd.read_csv("Q6/data/gender_submission.csv", index_col='PassengerId')
 accuracy = accuracy_score(survived_true, survived_prediction)
 print(accuracy)
 
 export_graphviz(
     tree,
-    out_file="decision_tree.dot",
+    out_file="Q6/decision_tree.dot",
     feature_names=X.columns.values.tolist(),
     class_names=["dead", "survived"],
     rounded=True,

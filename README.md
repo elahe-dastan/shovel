@@ -160,5 +160,8 @@ null age in the test dataset
 
 ## sklearn accuracy score
 I don't know how sklearn.metrics.accuracy_score computes accuracy and have no time to check it but it's a question
-
+92 percent accuracy :)))
 # Draw the decision tree model using graphviz
+
+# Different criterion
+The default criterion of decision tree is gini I gave a try to entropy

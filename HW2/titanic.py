@@ -118,7 +118,8 @@ X = train_data.drop('Survived', axis=1)
 
 print(train_data.info())
 
-tree = DecisionTreeClassifier(max_depth=5)
+# give entropy a try
+tree = DecisionTreeClassifier(max_depth=5, criterion="entropy")
 tree.fit(X, Y)
 
 fare_median = train_data['Fare'].median()
@@ -127,13 +128,13 @@ test_data['Fare'].fillna(value=fare_median, inplace=True)
 
 print(test_data.info())
 
-# Y = test_data['Survived']
-# X = test_data.drop('Survived', axis=1)
-
 # Evaluation
-print(tree.predict(X))
+survived_prediction = tree.predict(test_data)
 
-# accuracy_score()
+survived_true = pd.read_csv("data/gender_submission.csv", index_col='PassengerId')
+accuracy = accuracy_score(survived_true, survived_prediction)
+print(accuracy)
+
 export_graphviz(
     tree,
     out_file="decision_tree.dot",

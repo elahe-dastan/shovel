@@ -187,6 +187,7 @@ target : 0 or 1
 
 # Let's go step by step
 unlike last homework I'm going to train model and say it's accuracy and try to make it better
+0.65
 # There are no null values and all columns are numerical :)))))))
 
 # Normalizing data 
@@ -194,3 +195,9 @@ normalizing data is important when we want to calculate distance among data reco
 normalizing is not important in decision tree model cause we are not going to calculate any distance but it too important
 in regression model and knn and ...
 Standardize features by removing the mean and scaling to unit variance
+##### implementation point
+we have the train data we use StandardScaler() to **fit and transform** the data then we use the StandardScaler object we 
+have gotten to **just transform** the test data
+0.86
+
+accuracy reached 86 percent from 65 percent just by normalizing the data

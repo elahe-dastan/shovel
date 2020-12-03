@@ -201,3 +201,15 @@ have gotten to **just transform** the test data
 0.86
 
 accuracy reached 86 percent from 65 percent just by normalizing the data
+
+# dependant columns
+an idea I have not used till now is to check if columns depend on each other and use it to drop one 
+### Correlation
+correlation shows if two features have a linear releationship
+### Entropy
+Average information of a variable
+### Mutual Information
+MI = H(x) + H(y) - H(x, y)
+I checked to see the MI between columns here are the ones which have MI bigger than 1
+![](MI.png)
+It seems that chol and thalach are so much dependant

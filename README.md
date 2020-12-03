@@ -169,6 +169,7 @@ The default criterion of decision tree is gini I gave a try to entropy
 # HW2 Q7
 working on heart-disease-uci
 
+# Look at the columns
 age,
 sex,
 cp : chest pain type,
@@ -180,4 +181,16 @@ thalach : maximum heart rate achieved,
 exang : exercise induced angina,
 oldpeak : ST depression induced by exercise relative to rest,
 slope : the slope of the peak exercise ST segment,
-ca,thal,target
+ca : number of major vessels (0-3) colored by flourosopy,
+thal : 3 = normal, 6 = fixed defect, 7 = reversable defect,
+target : 0 or 1
+
+# Let's go step by step
+unlike last homework I'm going to train model and say it's accuracy and try to make it better
+# There are no null values and all columns are numerical :)))))))
+
+# Normalizing data 
+normalizing data is important when we want to calculate distance among data records, for example
+normalizing is not important in decision tree model cause we are not going to calculate any distance but it too important
+in regression model and knn and ...
+Standardize features by removing the mean and scaling to unit variance

@@ -171,14 +171,14 @@ working on heart-disease-uci
 
 # Look at the columns
 age,
-sex,
+sex (1 = male, 0 = female),
 cp : chest pain type,
 trestbps : resting blood pressure (in mm Hg on admission to the hospital),
 chol : serum cholestoral in mg/dl,
 fbs : fasting blood sugar &gt; 120 mg/dl (1 = true; 0 = false),
 restecg : resting electrocardiographic results,
 thalach : maximum heart rate achieved,
-exang : exercise induced angina,
+exang : exercise induced angina (1 = yes, 0 = no),
 oldpeak : ST depression induced by exercise relative to rest,
 slope : the slope of the peak exercise ST segment,
 ca : number of major vessels (0-3) colored by flourosopy,
@@ -205,7 +205,7 @@ accuracy reached 86 percent from 65 percent just by normalizing the data
 # dependant columns
 an idea I have not used till now is to check if columns depend on each other and use it to drop one 
 ### Correlation
-correlation shows if two features have a linear releationship
+correlation shows if two features have a linear relationship
 ### Entropy
 Average information of a variable
 ### Mutual Information
@@ -213,3 +213,40 @@ MI = H(x) + H(y) - H(x, y)
 I checked to see the MI between columns here are the ones which have MI bigger than 1
 ![](MI.png)
 It seems that chol and thalach are so much dependant
+
+we reached to the place that I don't know what to do any further of course there are other things we should which I may 
+even have the knowlodege but I don't know how to use them so I search about this dataset and tell you what I found
+
+### Check for the data characters mistakes
+Wowww, this was amazing. At first, I thought this dataset doesn't have any NaN, and I was happy BUT this dataset has some 
+wrong values which we should put NaN instead.
+##### Note
+Working with each dataset is different from working with another one and in each dataset you may do different things that's
+why experience is so important in here
+
+Let's see number of unique values in each column
+![](unique.png)
+
+Look!!!, there are two columns that seem strange:<br/>
+from [](#Look at the columns) we know that **'ca'** ranges from 0 to 3 so it should have 4 unique values but it's five :|
+so there should be a wrong value which needs to be cleaned
+```sh
+X_train['ca'].unique()
+```
+the above code shows that this column has an unaccepted value '4'
+# One time for always solve the problem SettingWithCopyWarning
+
+The same thing happens for 'thal' column too [](#Look at the columns) says this column can only take values from 1 to 3
+but [](#unique.png) shows this column has 4 unique values so like what we did for 'ca' column every value other than 1 to 3 
+should be null
+
+### explain thal column a little more
+Basically it is a radioactive element injected into the bloodstream of the patient. Then the blood flow of the patient is 
+observed while they are doing exercise and resting.
+- 0 maps to null in the original dataset
+- 1 maps to 6 in the original dataset. This means that a fixed defect was found.
+- 2 maps to 3 in the original dataset. This means that the blood flow was normal.
+- 3 maps to 7 in the original dataset. This means that a reversible defect was found.
+
+# Check for duplicate rows
+

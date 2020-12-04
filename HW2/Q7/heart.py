@@ -22,6 +22,9 @@ X_train.loc[X_train['ca']==4, 'ca'] = np.NaN
 # substitute nan with mode
 X_train['ca'] = X_train['ca'].fillna(X_train['ca'].mode()[0])
 
+X_train.loc[X_train['thal']==0, 'thal'] = np.NaN
+X_train['thal'] = X_train['thal'].fillna(X_train['thal'].mode()[0])
+
 # columns = list(X_train)
 # for i in range(len(columns)):
 #     for j in range(i+1, len(columns)):

@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+import numpy as np
 from sklearn.metrics import mutual_info_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
@@ -8,13 +9,18 @@ from sklearn.preprocessing import StandardScaler
 import random
 
 # Read data
-data = pd.read_csv("./data/heart.csv")
+data = pd.read_csv("/home/raha/py/src/shovel/HW2/Q7/data/heart.csv")
 # print(data.info())
 
 y = data['target']
 X = data.drop('target', axis=1)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=43)
+
+X_train.loc[X_train['ca']==4, 'ca'] = np.NaN
+
+# substitute nan with mode
+X_train['ca'] = X_train['ca'].fillna(X_train['ca'].mode()[0])
 
 # columns = list(X_train)
 # for i in range(len(columns)):

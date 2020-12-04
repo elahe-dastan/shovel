@@ -250,3 +250,6 @@ observed while they are doing exercise and resting.
 
 # Check for duplicate rows
 
+# Outliers and how to remove them
+Let's use box plots 
+![](boxplot.png)

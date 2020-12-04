@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.metrics import mutual_info_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
@@ -24,6 +25,14 @@ X_train['ca'] = X_train['ca'].fillna(X_train['ca'].mode()[0])
 
 X_train.loc[X_train['thal']==0, 'thal'] = np.NaN
 X_train['thal'] = X_train['thal'].fillna(X_train['thal'].mode()[0])
+
+X_train = X_train.drop_duplicates()
+
+
+X_train.plot(kind='box', subplots=True, layout=(2, 7), sharex=False,
+             sharey=False, figsize=(20, 10), color='deeppink')
+
+plt.show()
 
 # columns = list(X_train)
 # for i in range(len(columns)):

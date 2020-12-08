@@ -218,7 +218,8 @@ Let's see the number of unique values in each column<br/>
 ![](unique.png)
 
 Look!!!, there are two columns that seem strange:<br/>
-from [Go to Real Cool Heading section](#taking-a-look-at-the-columns)we know that **'ca'** ranges from 0 to 3 so it should have 4 unique values but it's five :|
+after [investigating the columns](#taking-a-look-at-the-columns)we know that **'ca'** ranges from 0 to 3, so it should have 
+only 4 unique values but it's five :flushed:
 so there should be a wrong value which needs to be cleaned
 ```sh
 X_train['ca'].unique()

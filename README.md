@@ -254,6 +254,4 @@ plt.show()
 
 I can either drop the outliers or assign a new value. I chose the first option.
 
-
-
 # One time for always solve the problem SettingWithCopyWarning

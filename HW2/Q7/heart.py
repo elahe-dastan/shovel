@@ -65,8 +65,6 @@ normalized_train_data = standardize.fit_transform(X_train)
 # just transform
 transformed_test_data = standardize.transform(X_test)
 
-print(len(normalized_train_data))
-print(len(y_train))
 knn_clf = KNeighborsClassifier()
 knn_clf.fit(normalized_train_data, y_train)
 

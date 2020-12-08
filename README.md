@@ -254,4 +254,7 @@ plt.show()
 
 I can either drop the outliers or assign a new value. I chose the first option.
 
+### Models
+Accuracy ok knn model was 83%
+
 # One time for always solve the problem SettingWithCopyWarning

@@ -91,25 +91,27 @@ I use mean squared error for this purpose, the mse was 5.7495
  
  
 # HW2 Q6
-#### 1. Read the dataset using pandas library
+Working with titanic dataset.
+
+### 1. Read the dataset using pandas library
 
 ![](titanic.png)
 
-#### 2. Do something about the null values
+### 2. Do something about the null values
 I may change my opinion in future but with the knowledge I have right now I guess the best way is to replace the null 
 values of the embarked column with the mode of the column (it has only 2 null values and replacing mode can be a good guess),
 It's hard to say which column is more important in our prediction at the moment but I guess age can affect our prediction
 a lot so I try not to remove the column and I use median values for the null ones but the null values of the "cabin" column
 is so many that I think the column doesn't worth keeping. 
 
-#### 3. Get deeper to the dataset
+### 3. Get deeper to the dataset
 
-#### non numerical columns and decision tree
+#### Non numerical columns and decision tree
 We'd like to use a decision tree to classify passengers and the decision tree classifier from sklearn library cannot work
 with categorical values so we have to transform the categorical columns to numerical. I divide categorical columns into 
 two groups, the ones which we can arrange in an order and the ones which we cannot. I use ordinal encoder for the first
 group and one hot encoder for the second one. Now let's take a look at the categorical columns:<br/>
-##### Name : 
+###### Name : 
 At first I thought of dropping this column, how can names affect our prediction??!! no body stays alive because of
 his/her name but it's a little trickier I found two points hidden in names first: we can find families using names and 
 cause families travel together it's probable to say they all survive together or they all not, second: some words like
@@ -117,118 +119,106 @@ Miss. and Mrs. are specified in this column which gives us a sense to estimate h
 in the age column in a more proper way. We Asians may not be familiar with western names I've searched for it and write 
 some points for you.<br/>
 Look at this example:<br/>
-**Baclini,Mrs.Solomon (Latifa Qurban)**<br/>
-**Mrs.** indicates that she is married<br/>
+**Baclini,Mrs.Solomon (Latifa Qurban)**<br/><br/>
+**Mrs.** indicates that she is married<br/><br/>
 **Solomon** is the name of her husband. This is an old-ish custom where wives can be referred to by therir husband names. 
-For instance, if Jane Smith was married to John Smith, she could be referred to as Mrs.John Smith.<br/>
-**Latifa** is her first name.<br/>
-**Qurban** is her "maiden" name. This is the last name that she had before getting married.<br/>
-**Baclini** is her married last name(the last name of her husband)<br/>
-I take another example:<br/>
-**Baclini,Miss.Marie Catherine**<br/>
-Miss indicates that she is unmarried.<br/>
-In this **Marie** is her first name, **Catherine** is her middle name and **Baclini** is the last name.<br/>
-**Mr.** (for men of all the ages)<br/>
-**Master.** (for male children)<br/>
+For instance, if Jane Smith was married to John Smith, she could be referred to as Mrs.John Smith.<br/><br/>
+**Latifa** is her first name.<br/><br/>
+**Qurban** is her "maiden" name. This is the last name that she had before getting married.<br/><br/>
+**Baclini** is her married last name(the last name of her husband)<br/><br/>
+I take another example:<br/><br/>
+**Baclini,Miss.Marie Catherine**<br/><br/>
+Miss indicates that she is unmarried.<br/><br/>
+In this **Marie** is her first name, **Catherine** is her middle name and **Baclini** is the last name.<br/><br/>
+**Mr.** (for men of all the ages)<br/><br/>
+**Master.** (for male children)<br/><br/>
 We have other words like Dr., Sir., Col. and ... it's hard to separate each of them apart so I call all of them 
 professional and I guess their age should be relatively high.<br/>
 Let's sum it up I think first name and middle name have nothing to do with the passenger's survival but the last name can
-help us find out families and the Mr. etc. words help us fill null ages.<br/>
+help us find out families and the Mr. etc. words help us fill null ages.<br/><br/>
 **Note**: Finding last name for married women is tricky actually they have two last names and those are both important 
 cause they may have a trip with their husband or parents. I may change my code in future but to make it simple I just 
 consider their married last name. 
 <!-- I don't separate last names for now this will make so many columns -->
 
 Sex : There is no sex order but this column takes only two values so I prefer to use ordinal encoder over one hot encoder
-which increases the number of my columns.<br/>    
+which increases the number of my columns.<br/>  
+
 Ticket : Tickets have 1. an optional string prefix and 2. a number except for the special cases Ticket='LINE. Ticket prefix 
 tells you who the issuing ticket office and/or embarkation point was. Ticket number can be compared for equality that
 tells you who were sharing a cabin or travelling together, or compared for closeness. The ticket = LINE have been assigned 
-to a group of American Line employees for free
-# Pressure time
-I' m now under a lot of pressure so can't write a good readme I hope I can come back 
-Embarked: I think there is no order --> one hot encoder
-Embarked has 3 values 'C', 'Q', 'S'
+to a group of American Line employees for free<br/>  
 
-## How to handle missing values in the test dataset???
-I fill them the way I did in train dataset
+Embarked: This column can take three values 'C', 'Q', 'S' which I think have no order, so I use one hot encoder
 
-## What if I see something completely new in the test dataset
-In this dataset we had so many null values in the age column, to fill them I extracted the honorifics and said ...
-"the average age of Mr is this and the average age of Miss is that" now what shall I do if I see the honorific Dr with
-null age in the test dataset
-
-## sklearn accuracy score
-I don't know how sklearn.metrics.accuracy_score computes accuracy and have no time to check it but it's a question
-92 percent accuracy :)))
-# Draw the decision tree model using graphviz
-
-# Different criterion
-The default criterion of decision tree is gini I gave a try to entropy
+### 4. Missing values in the test dataset
+I strongly recommend splitting your dataset to train and test as soon as possible and don't look at the test data at all,
+if you do that you may have null values in the test data. To remove them I used the data in the training dataset for example
+if age is null in the test data I filled it with the average of age in the train data.
 
 # HW2 Q7
-working on heart-disease-uci
+Working on heart-disease-uci dataset.
 
-# Look at the columns
-age,
-sex (1 = male, 0 = female),
-cp : chest pain type,
-trestbps : resting blood pressure (in mm Hg on admission to the hospital),
-chol : serum cholestoral in mg/dl,
-fbs : fasting blood sugar &gt; 120 mg/dl (1 = true; 0 = false),
-restecg : resting electrocardiographic results,
-thalach : maximum heart rate achieved,
-exang : exercise induced angina (1 = yes, 0 = no),
-oldpeak : ST depression induced by exercise relative to rest,
-slope : the slope of the peak exercise ST segment,
-ca : number of major vessels (0-3) colored by flourosopy,
-thal : 3 = normal, 6 = fixed defect, 7 = reversable defect,
-target : 0 or 1
+### Taking a look at the columns
+**age**<br/>
+**sex**: (1 = male, 0 = female)<br/>
+**cp** : chest pain type<br/>
+**trestbps** : resting blood pressure (in mm Hg on admission to the hospital)<br/>
+**chol** : serum cholestoral in mg/dl<br/>
+**fbs** : fasting blood sugar &gt; 120 mg/dl (1 = true; 0 = false)<br/>
+**restecg** : resting electrocardiographic results<br/>
+**thalach** : maximum heart rate achieved<br/>
+**exang** : exercise induced angina (1 = yes, 0 = no)<br/>
+**oldpeak** : ST depression induced by exercise relative to rest<br/>
+**slope** : the slope of the peak exercise ST segment<br/>
+**ca** : number of major vessels (0-3) colored by flourosopy<br/>
+**thal** : 3 = normal, 6 = fixed defect, 7 = reversable defect<br/>
+**target** : 0 or 1
 
-# Let's go step by step
-unlike last homework I'm going to train model and say it's accuracy and try to make it better
-0.65
-# There are no null values and all columns are numerical :)))))))
+### Normalize data 
+Normalizing data is important when we want to calculate distance among data records, for example
+normalizing is not important in decision tree models cause we are not going to calculate any distance but it's too important
+in models like regression and knn.<br/>
+Normalizing means standardizing features by removing the mean and scaling to unit variance.<br/>
+To normalize the dataset I used StandardScaler() to **fit and transform** the data then I used the StandardScaler object 
+I had gotten to **just transform** the test data.<br/>
+Accuracy reached to 86% from 65% just by normalizing the data.
 
-# Normalizing data 
-normalizing data is important when we want to calculate distance among data records, for example
-normalizing is not important in decision tree model cause we are not going to calculate any distance but it too important
-in regression model and knn and ...
-Standardize features by removing the mean and scaling to unit variance
-##### implementation point
-we have the train data we use StandardScaler() to **fit and transform** the data then we use the StandardScaler object we 
-have gotten to **just transform** the test data
-0.86
+[comment]: <> (# dependant columns)
 
-accuracy reached 86 percent from 65 percent just by normalizing the data
+[comment]: <> (an idea I have not used till now is to check if columns depend on each other and use it to drop one )
 
-# dependant columns
-an idea I have not used till now is to check if columns depend on each other and use it to drop one 
-### Correlation
-correlation shows if two features have a linear relationship
-### Entropy
-Average information of a variable
-### Mutual Information
-MI = H(x) + H(y) - H(x, y)
-I checked to see the MI between columns here are the ones which have MI bigger than 1
-![](MI.png)
-It seems that chol and thalach are so much dependant
+[comment]: <> (### Correlation)
 
-we reached to the place that I don't know what to do any further of course there are other things we should which I may 
-even have the knowlodege but I don't know how to use them so I search about this dataset and tell you what I found
+[comment]: <> (correlation shows if two features have a linear relationship)
 
-### Check for the data characters mistakes
-Wowww, this was amazing. At first, I thought this dataset doesn't have any NaN, and I was happy BUT this dataset has some 
-wrong values which we should put NaN instead.
-##### Note
-Working with each dataset is different from working with another one and in each dataset you may do different things that's
-why experience is so important in here
+[comment]: <> (### Entropy)
 
-Let's see number of unique values in each column
+[comment]: <> (Average information of a variable)
+
+[comment]: <> (### Mutual Information)
+
+[comment]: <> (MI = H&#40;x&#41; + H&#40;y&#41; - H&#40;x, y&#41;)
+
+[comment]: <> (I checked to see the MI between columns here are the ones which have MI bigger than 1)
+
+[comment]: <> (![]&#40;MI.png&#41;)
+
+[comment]: <> (It seems that chol and thalach are so much dependant)
+
+[comment]: <> (we reached to the place that I don't know what to do any further of course there are other things we should which I may )
+
+[comment]: <> (even have the knowlodege but I don't know how to use them so I search about this dataset and tell you what I found)
+
+### Wrong data
+At first, I thought this dataset doesn't contain any NaN values BUT this dataset has some wrong values which we should 
+put NaN instead.<br/>
+
+Let's see the number of unique values in each column<br/>
 ![](unique.png)
 
 Look!!!, there are two columns that seem strange:<br/>
-from [](#Look at the columns) we know that **'ca'** ranges from 0 to 3 so it should have 4 unique values but it's five :|
+from [Go to Real Cool Heading section](#taking-a-look-at-the-columns)we know that **'ca'** ranges from 0 to 3 so it should have 4 unique values but it's five :|
 so there should be a wrong value which needs to be cleaned
 ```sh
 X_train['ca'].unique()

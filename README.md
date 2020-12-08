@@ -255,6 +255,11 @@ plt.show()
 I can either drop the outliers or assign a new value. I chose the first option.
 
 ### Models
-Accuracy ok knn model was 83%
+Accuracy on knn model was 83%
+
+### Different naive bayes models
+There are two naive bayes models explained below
+#### Multinomial Naive Bayes
+#### Gaussian Naive Bayes
 
 # One time for always solve the problem SettingWithCopyWarning

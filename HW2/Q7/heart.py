@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
-import random
+from sklearn.naive_bayes import GaussianNB
 
 # Read data
 data = pd.read_csv("/home/raha/py/src/shovel/HW2/Q7/data/heart.csv")
@@ -72,3 +72,6 @@ y_predicted = knn_clf.predict(transformed_test_data)
 
 accuracy = accuracy_score(y_test, y_predicted)
 print(accuracy)
+
+gnb = GaussianNB()
+gnb.fit()

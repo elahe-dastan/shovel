@@ -18,21 +18,24 @@ X = data.drop('target', axis=1)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=43)
 
-X_train.loc[X_train['ca']==4, 'ca'] = np.NaN
+X_train.loc[X_train['ca'] == 4, 'ca'] = np.NaN
 
 # substitute nan with mode
 X_train['ca'] = X_train['ca'].fillna(X_train['ca'].mode()[0])
 
-X_train.loc[X_train['thal']==0, 'thal'] = np.NaN
+X_train.loc[X_train['thal'] == 0, 'thal'] = np.NaN
 X_train['thal'] = X_train['thal'].fillna(X_train['thal'].mode()[0])
 
 X_train = X_train.drop_duplicates()
 
+continous_features = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
 
-X_train.plot(kind='box', subplots=True, layout=(2, 7), sharex=False,
-             sharey=False, figsize=(20, 10), color='deeppink')
+for feature in X_train.columns:
+    feature_data = X_train[feature]
+    Q1 = np.percentile(feature_data, 25)
+    Q3 = np.percentile(feature_data, 75)
+    IQR = Q3 - Q1  # Interquartile Range
 
-plt.show()
 
 # columns = list(X_train)
 # for i in range(len(columns)):
@@ -60,4 +63,3 @@ plt.show()
 #
 # accuracy = accuracy_score(y_test, y_predicted)
 # print(accuracy)
-

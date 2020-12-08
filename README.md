@@ -218,20 +218,18 @@ Let's see the number of unique values in each column<br/>
 ![](unique.png)
 
 Look!!!, there are two columns that seem strange:<br/>
-after [investigating the columns](#taking-a-look-at-the-columns)we know that **'ca'** ranges from 0 to 3, so it should have 
-only 4 unique values but it's five :flushed:
-so there should be a wrong value which needs to be cleaned
+after [investigating the columns](#taking-a-look-at-the-columns) we know that **'ca'** ranges from 0 to 3, so it should have 
+only 4 unique values, but it has five :flushed: so there should be a wrong value which needs to be cleaned.
 ```sh
 X_train['ca'].unique()
 ```
-the above code shows that this column has an unaccepted value '4'
-# One time for always solve the problem SettingWithCopyWarning
+the above code shows that this column has an unaccepted value '4', so I substituted the value '4' with NaN.<br/>
 
-The same thing happens for 'thal' column too [](#Look at the columns) says this column can only take values from 1 to 3
-but [](#unique.png) shows this column has 4 unique values so like what we did for 'ca' column every value other than 1 to 3 
-should be null
+The same thing happens for 'thal' column too [this header](#taking-a-look-at-the-columns) says this column can only take
+values from 1 to 3 but, this column contains 4 unique values so like what I did for 'ca' column every value other than 1 to 3 
+should be changed to null.
 
-### explain thal column a little more
+### Explain thal column a little more
 Basically it is a radioactive element injected into the bloodstream of the patient. Then the blood flow of the patient is 
 observed while they are doing exercise and resting.
 - 0 maps to null in the original dataset
@@ -240,7 +238,18 @@ observed while they are doing exercise and resting.
 - 3 maps to 7 in the original dataset. This means that a reversible defect was found.
 
 # Check for duplicate rows
+```shell
+X_train.drop_duplicates()
+```
 
-# Outliers and how to remove them
+# Remove outliers
 Let's use box plots 
+```shell
+X_train.plot(kind='box', subplots=True, layout=(2, 7), sharex=False,
+             sharey=False, figsize=(20, 10), color='deeppink')
+
+plt.show()
+```
 ![](boxplot.png)
+
+# One time for always solve the problem SettingWithCopyWarning

@@ -30,12 +30,16 @@ X_train = X_train.drop_duplicates()
 
 continous_features = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
 
-for feature in X_train.columns:
+for feature in continous_features:
     feature_data = X_train[feature]
     Q1 = np.percentile(feature_data, 25)
     Q3 = np.percentile(feature_data, 75)
     IQR = Q3 - Q1  # Interquartile Range
-
+    outlier_step = IQR * 1.5  # considering above
+    outliers = feature_data[~((feature_data >= Q1 - outlier_step) & (feature_data <= Q3 + outlier_step))].index.tolist()
+    X_train.drop(outliers, inplace=True)
+    print('For the feature {}, No of Outliers is {}'.format(feature, len(outliers)))
+    print('Outliers from {} feature removed'.format(feature))
 
 # columns = list(X_train)
 # for i in range(len(columns)):

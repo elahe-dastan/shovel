@@ -237,12 +237,12 @@ observed while they are doing exercise and resting.
 - 2 maps to 3 in the original dataset. This means that the blood flow was normal.
 - 3 maps to 7 in the original dataset. This means that a reversible defect was found.
 
-# Check for duplicate rows
+### Check for duplicate rows
 ```shell
 X_train.drop_duplicates()
 ```
 
-# Remove outliers
+# Deal with outliers
 Let's use box plots 
 ```shell
 X_train.plot(kind='box', subplots=True, layout=(2, 7), sharex=False,
@@ -251,5 +251,9 @@ X_train.plot(kind='box', subplots=True, layout=(2, 7), sharex=False,
 plt.show()
 ```
 ![](boxplot.png)
+
+I can either drop the outliers or assign a new value. I chose the first option.
+
+
 
 # One time for always solve the problem SettingWithCopyWarning

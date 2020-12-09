@@ -259,6 +259,7 @@ I can either drop the outliers or assign a new value. I chose the first option.
 
 ### Models
 Accuracy on knn model was 83%
+Accuracy on gaussian naive bayes was 90%
 
 ### Different naive bayes models
 There are two naive bayes models explained below

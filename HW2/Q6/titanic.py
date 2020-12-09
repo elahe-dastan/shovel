@@ -1,3 +1,5 @@
+import csv
+
 import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.preprocessing import OneHotEncoder
@@ -38,11 +40,12 @@ def extract_honorific(dataset):
 
 
 # Read train data
-train_data = pd.read_csv("Q6/data/train.csv", index_col='PassengerId')
+train_data = pd.read_csv("./data/train.csv", index_col='PassengerId')
 
 # Read test data
-test_data = pd.read_csv("Q6/data/test.csv", index_col='PassengerId')
-
+test_data = pd.read_csv("./data/test.csv")
+test_index_column = test_data['PassengerId']
+test_data = test_data.drop('PassengerId', axis=1)
 # Fix null values
 
 # null embarked --> mode
@@ -131,13 +134,19 @@ print(test_data.info())
 # Evaluation
 survived_prediction = tree.predict(test_data)
 
-survived_true = pd.read_csv("Q6/data/gender_submission.csv", index_col='PassengerId')
-accuracy = accuracy_score(survived_true, survived_prediction)
-print(accuracy)
+with open("./data/prediction.csv", 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["PassengerId", "Survived"])
+    for p_id, prediction in zip(test_index_column, survived_prediction):
+        writer.writerow([p_id, prediction])
+
+# survived_true = pd.read_csv("./data/gender_submission.csv", index_col='PassengerId')
+# accuracy = accuracy_score(survived_true, survived_prediction)
+# print(accuracy)
 
 export_graphviz(
     tree,
-    out_file="Q6/decision_tree.dot",
+    out_file="./decision_tree.dot",
     feature_names=X.columns.values.tolist(),
     class_names=["dead", "survived"],
     rounded=True,

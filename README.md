@@ -260,6 +260,8 @@ Accuracy on knn model was 83%
 ### Different naive bayes models
 There are two naive bayes models explained below
 #### Multinomial Naive Bayes
+used for descrete data
 #### Gaussian Naive Bayes
+used for continuous data
 
 # One time for always solve the problem SettingWithCopyWarning

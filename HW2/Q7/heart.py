@@ -74,4 +74,9 @@ accuracy = accuracy_score(y_test, y_predicted)
 print(accuracy)
 
 gnb = GaussianNB()
-gnb.fit()
+gnb.fit(X_train, y_train)
+
+y_predicted = gnb.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_predicted)
+print(accuracy)

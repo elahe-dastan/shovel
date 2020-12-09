@@ -156,6 +156,9 @@ I strongly recommend splitting your dataset to train and test as soon as possibl
 if you do that you may have null values in the test data. To remove them I used the data in the training dataset for example
 if age is null in the test data I filled it with the average of age in the train data.
 
+### 5. Score in kaggle
+![](kaggle_titanic.png)
+
 # HW2 Q7
 Working on heart-disease-uci dataset.
 

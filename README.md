@@ -95,7 +95,7 @@ Working with titanic dataset.
 
 ### 1. Read the dataset using pandas library
 
-![](titanic.png)
+![](images/titanic.png)
 
 ### 2. Do something about the null values
 I may change my opinion in future but with the knowledge I have right now I guess the best way is to replace the null 
@@ -157,7 +157,7 @@ if you do that you may have null values in the test data. To remove them I used 
 if age is null in the test data I filled it with the average of age in the train data.
 
 ### 5. Score in kaggle
-![](kaggle_titanic.png)
+![](images/kaggle_titanic.png)
 
 # HW2 Q7
 Working on heart-disease-uci dataset.
@@ -218,7 +218,7 @@ At first, I thought this dataset doesn't contain any NaN values BUT this dataset
 put NaN instead.<br/>
 
 Let's see the number of unique values in each column<br/>
-![](unique.png)
+![](images/unique.png)
 
 Look!!!, there are two columns that seem strange:<br/>
 after [investigating the columns](#taking-a-look-at-the-columns) we know that **'ca'** ranges from 0 to 3, so it should have 
@@ -253,7 +253,7 @@ X_train.plot(kind='box', subplots=True, layout=(2, 7), sharex=False,
 
 plt.show()
 ```
-![](boxplot.png)
+![](images/boxplot.png)
 
 I can either drop the outliers or assign a new value. I chose the first option.
 
@@ -264,8 +264,28 @@ Accuracy on gaussian naive bayes was 90%
 ### Different naive bayes models
 There are two naive bayes models explained below
 #### Multinomial Naive Bayes
-used for descrete data
+used for discrete data
 #### Gaussian Naive Bayes
 used for continuous data
+
+# HW3 Q8
+I am going to work with titanic dataset again, I have done the preprocessing in [HW2 Q6](hw2-q6) so I can simply use my
+new model. I want to use random forest tree model.
+1. max_depth=5, criterion=gini<br/>
+   ![](images/max_depth_5_gini.png)
+2. max_depth=5, criterion=entropy<br/>
+   ![](images/max_depth_5_entropy.png)
+3. max_depth=10, criterion=gini<br/>
+   ![](images/max_depth_50_gini.png)
+4. max_depth=10, criterion=entropy<br/>
+   ![](images/max_depth_50_entropy.png)
+   
+**Comparing random forest model with decision tree:** In [HW2 Q6](hw2-q6) my decision tree had max_depth=5 and criterion=
+gini, the accuracy was 77%, the forest classifier with the same parameters gave accuracy= 77%.
+
+**Comparing speed of learning:**<br/>
+I used time.start and time.end to calculate the time of learning.<br/>
+decision tree learning time was 0.0022056102752685547<br/>
+random forest learning time was 0.10478830337524414
 
 # One time for always solve the problem SettingWithCopyWarning

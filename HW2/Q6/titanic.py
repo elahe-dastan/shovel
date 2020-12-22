@@ -1,4 +1,5 @@
 import csv
+import time
 
 import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
@@ -123,7 +124,14 @@ print(train_data.info())
 
 # give entropy a try
 tree = DecisionTreeClassifier(max_depth=5, criterion="entropy")
+# starting time
+start = time.time()
+
 tree.fit(X, Y)
+# end time
+end = time.time()
+# total time taken
+print(f"decision tree learning time was {end - start}")
 
 fare_median = train_data['Fare'].median()
 

@@ -1,4 +1,5 @@
 import csv
+import time
 
 import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
@@ -125,8 +126,15 @@ test_data['Fare'].fillna(value=fare_median, inplace=True)
 
 print(test_data.info())
 
-forest_clf = RandomForestClassifier(random_state=42)
+forest_clf = RandomForestClassifier(random_state=42, max_depth=5, criterion="entropy")
+# starting time
+start = time.time()
 forest_clf.fit(X, Y)
+# end time
+end = time.time()
+# total time taken
+print(f"random forest learning time was {end - start}")
+
 survived_prediction = forest_clf.predict(test_data)
 
 with open("./data/prediction.csv", 'w', newline='') as file:

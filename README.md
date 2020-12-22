@@ -300,5 +300,6 @@ data we have is not linearly separable.
 2-1. poly<br/>
 ![](images/poly_svm.png)
 2-2. rbf
+![](images/poly_svm.png)
 
 # One time for always solve the problem SettingWithCopyWarning

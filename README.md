@@ -293,4 +293,12 @@ I'm going to work with titanic dataset again. In this part I wanna use SVM for c
 1. SVM with linear kernel function:<br/>
 ![](images/linear_svm.png)
 
+As you see, the accuracy of linear SVM model is less than the decision tree and random forest models, this shows that the 
+data we have is not linearly separable.
+
+2.SVM with non linear kernel function:<br/>
+2-1. poly<br/>
+![](images/poly_svm.png)
+2-2. rbf
+
 # One time for always solve the problem SettingWithCopyWarning

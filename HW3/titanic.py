@@ -127,7 +127,7 @@ test_data['Fare'].fillna(value=fare_median, inplace=True)
 
 print(test_data.info())
 
-# forest_clf = RandomForestClassifier(random_state=42, max_depth=5, criterion="entropy")
+forest_clf = RandomForestClassifier(random_state=42, max_depth=5, criterion="entropy")
 # # starting time
 # start = time.time()
 # forest_clf.fit(X, Y)
@@ -139,8 +139,12 @@ print(test_data.info())
 # survived_prediction = forest_clf.predict(test_data)
 
 svm_clf = SVC(kernel="linear", C=1)
-svm_clf.fit(X, Y)
-survived_prediction = svm_clf.predict(test_data)
+# svm_clf.fit(X, Y)
+# survived_prediction = svm_clf.predict(test_data)
+
+poly_kernel_svm_clf = SVC(kernel="poly", degree=3, coef0=1, C=5)
+poly_kernel_svm_clf.fit(X, Y)
+survived_prediction = poly_kernel_svm_clf.predict(test_data)
 
 with open("./data/prediction.csv", 'w', newline='') as file:
     writer = csv.writer(file)

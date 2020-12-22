@@ -288,4 +288,9 @@ I used time.start and time.end to calculate the time of learning.<br/>
 decision tree learning time was 0.0022056102752685547<br/>
 random forest learning time was 0.10478830337524414
 
+# HW3 Q9
+I'm going to work with titanic dataset again. In this part I wanna use SVM for classification.
+1. SVM with linear kernel function:<br/>
+![](images/linear_svm.png)
+
 # One time for always solve the problem SettingWithCopyWarning

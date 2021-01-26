@@ -82,5 +82,6 @@ data1 = pd.read_csv("Dataset1.csv")
 # plt.ylabel("Y")
 # plt.show()
 
-kmeans(data1.to_numpy(), 4)
+print(data1.to_numpy())
+# kmeans(data1.to_numpy(), 4)
 

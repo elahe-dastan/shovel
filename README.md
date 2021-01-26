@@ -302,4 +302,8 @@ data we have is not linearly separable.
 2-2. rbf
 ![](images/poly_svm.png)
 
+# HW4 Q1
+I want to implement k-means algorithm.<br/>
+1.
+
 # One time for always solve the problem SettingWithCopyWarning

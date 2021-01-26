@@ -26,7 +26,8 @@ def kmeans(data: np.ndarray, k: int):
     # norm 2 with zero
     error = np.linalg.norm(centers_new - centers_old)
 
-    for j in range(20):
+    rounds = 20
+    for j in range(rounds):
         for i in range(k):
             distances[:, i] = np.linalg.norm(data - centers[i], axis=1)
         clusters = np.argmin(distances, axis=1)
@@ -37,9 +38,14 @@ def kmeans(data: np.ndarray, k: int):
         # error = np.linalg.norm(centers_new - centers_old)
     print(centers_new)
 
-    plt.scatter(data[:, 0], data[:, 1], s=7)
-    plt.scatter(centers_new[:, 0], centers_new[:, 1], marker='*', c='g', s=150)
-    plt.title("K-Means on Dataset1, rounds=20, k=2")
+    colors = ['blue', 'green', 'orange', 'purple']
+    # plot data points
+    for i in range(n):
+        plt.scatter(data[i, 0], data[i, 1], s=7, color=colors[clusters[i]])
+    # plot centers
+    for i in range(k):
+        plt.scatter(centers_new[i, 0], centers_new[i, 1], marker='*', c=colors[i], s=150)
+    plt.title("K-Means on Dataset1, rounds={}, k={}".format(rounds, k))
     plt.xlabel("X")
     plt.ylabel("Y")
     plt.show()

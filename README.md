@@ -307,5 +307,10 @@ I want to implement k-means algorithm.<br/>
 1. Illustrating datasets
 ![dataset1 illustration](images/dataset1_illustration.png)
 ![dataset2 illustration](images/dataset2_illustration.png)
+   
+Look at the pictures above, it's obvious that k-means can perform well on dataset1 but is not a good choice for dataset2,
+and for dataset2 we should use algorithms like DBSCAN.
+
+2. Implement k-means algorithm 
 
 # One time for always solve the problem SettingWithCopyWarning

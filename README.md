@@ -306,5 +306,6 @@ data we have is not linearly separable.
 I want to implement k-means algorithm.<br/>
 1. Illustrating datasets
 ![dataset1 illustration](images/dataset1_illustration.png)
+![dataset2 illustration](images/dataset2_illustration.png)
 
 # One time for always solve the problem SettingWithCopyWarning

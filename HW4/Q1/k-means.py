@@ -39,13 +39,14 @@ def kmeans(data: np.ndarray, k: int):
     # print(centers_new)
 
     colors = ['blue', 'green', 'orange', 'purple']
-
+    cluster_errors = np.zeros(k)
     for i in range(k):
         norm = np.linalg.norm(data[clusters == i] - centers[i], axis=1)
         m = np.mean(norm, axis=0)
-        print(colors[i])
-        print(m)
+        cluster_errors[i] = m
+        print("cluster error for cluster {} is {}".format(colors[i], m))
 
+    print("clustering error is {}".format(np.mean(cluster_errors)))
     # plot data points
     for i in range(n):
         plt.scatter(data[i, 0], data[i, 1], s=7, color=colors[clusters[i]])
@@ -82,3 +83,4 @@ data1 = pd.read_csv("Dataset1.csv")
 # plt.show()
 
 kmeans(data1.to_numpy(), 4)
+

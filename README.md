@@ -328,6 +328,11 @@ orange
 purple
 0.3932010909149059
 ```
+4. clustering err is
+```shell
+0.7147996970505718
+```
+
 ![cluster error in k-means](images/kmeans-cluster-error.png)
    
 # One time for always solve the problem SettingWithCopyWarning

@@ -316,4 +316,18 @@ and for dataset2 we should use algorithms like DBSCAN.
 ![k-means on dataset1 with k = 3](images/dataset1k3.png)
 ![k-means on dataset1 with k = 4](images/dataset1k4.png)
 
+3. calculating clustering error
+This is the result of one run.
+```shell
+blue
+1.3464853546619233
+green
+0.48700552442524053
+orange
+0.6325068182002177
+purple
+0.3932010909149059
+```
+![cluster error in k-means](images/kmeans-cluster-error.png)
+   
 # One time for always solve the problem SettingWithCopyWarning

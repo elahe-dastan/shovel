@@ -36,9 +36,16 @@ def kmeans(data: np.ndarray, k: int):
         for i in range(k):
             centers_new[i] = np.mean(data[clusters == i], axis=0)
         # error = np.linalg.norm(centers_new - centers_old)
-    print(centers_new)
+    # print(centers_new)
 
     colors = ['blue', 'green', 'orange', 'purple']
+
+    for i in range(k):
+        norm = np.linalg.norm(data[clusters == i] - centers[i], axis=1)
+        m = np.mean(norm, axis=0)
+        print(colors[i])
+        print(m)
+
     # plot data points
     for i in range(n):
         plt.scatter(data[i, 0], data[i, 1], s=7, color=colors[clusters[i]])

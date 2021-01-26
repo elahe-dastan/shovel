@@ -13,7 +13,7 @@ def kmeans(data: np.ndarray, k: int):
     # Generate random centers using Gaussian distribution
     mean = np.mean(data, axis=0)
     std = np.std(data, axis=0)
-    centers = np.random.randn(k, c)*std + mean
+    centers = np.random.randn(k, c) * std + mean
 
     # plt.scatter(data[:, 0], data[:, 1], s=7)
     # plt.scatter(centers[:, 0], centers[:, 1], marker='*', c='g', s=150)
@@ -26,7 +26,7 @@ def kmeans(data: np.ndarray, k: int):
     # norm 2 with zero
     error = np.linalg.norm(centers_new - centers_old)
 
-    while error != 0:
+    for j in range(20):
         for i in range(k):
             distances[:, i] = np.linalg.norm(data - centers[i], axis=1)
         clusters = np.argmin(distances, axis=1)
@@ -34,12 +34,16 @@ def kmeans(data: np.ndarray, k: int):
         centers_old = deepcopy(centers_new)
         for i in range(k):
             centers_new[i] = np.mean(data[clusters == i], axis=0)
-        error = np.linalg.norm(centers_new - centers_old)
+        # error = np.linalg.norm(centers_new - centers_old)
     print(centers_new)
 
     plt.scatter(data[:, 0], data[:, 1], s=7)
     plt.scatter(centers_new[:, 0], centers_new[:, 1], marker='*', c='g', s=150)
+    plt.title("K-Means on Dataset1, rounds=20, k=2")
+    plt.xlabel("X")
+    plt.ylabel("Y")
     plt.show()
+
 
 # illustrating dataset 1
 data1 = pd.read_csv("Dataset1.csv")

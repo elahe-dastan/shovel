@@ -311,6 +311,9 @@ I want to implement k-means algorithm.<br/>
 Look at the pictures above, it's obvious that k-means can perform well on dataset1 but is not a good choice for dataset2,
 and for dataset2 we should use algorithms like DBSCAN.
 
-2. Implement k-means algorithm 
+2. Implement k-means algorithm
+![k-means on dataset1 with k = 2](images/dataset1k2.png)
+![k-means on dataset1 with k = 3](images/dataset1k3.png)
+![k-means on dataset1 with k = 4](images/dataset1k4.png)
 
 # One time for always solve the problem SettingWithCopyWarning

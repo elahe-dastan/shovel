@@ -304,6 +304,7 @@ data we have is not linearly separable.
 
 # HW4 Q1
 I want to implement k-means algorithm.<br/>
-1.
+1. Illustrating datasets
+![dataset1 illustration](images/dataset1_illustration.png)
 
 # One time for always solve the problem SettingWithCopyWarning

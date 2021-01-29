@@ -10,7 +10,6 @@ There is a file named covid.csv that contains information about people suffering
 |id     |  sex   |birth_year |country  | region  |infection_reason |infected_by |confirmed_date | state  |
 |-------|:------:|:---------:|:-------:|:-------:|:---------------:|:----------:|:-------------:|-------:|
 |nominal| nominal| interval  | nominal | nominal |    nominal      |    ratio   |    interval   | nominal|
-|-------|:------:|:---------:|:-------:|:-------:|:---------------:|:----------:|:-------------:|-------:|
 | 0 nan | 0 nan  |  10 nan   | 0 nan   | 10 nan  |     81 nan      |  134 nan   |      0 nan    |  0 nan |
 
 3. It is asked to find max, mean and std of the column birth_year<br/>

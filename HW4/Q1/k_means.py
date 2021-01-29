@@ -17,6 +17,21 @@ def scatter(dataset: str):
     plt.show()
 
 
+def elbow(data, max_k: int):
+    clustering_errors = np.zeros(max_k)
+    for k in range(1, max_k+1):
+        obj = kmeans(data.to_numpy(), k, 20)
+        clusters, centers = obj.cluster()
+        clustering_error = obj.clustering_error(clusters, centers)
+        clustering_errors[k - 1] = clustering_error
+
+    plt.plot(np.array(range(1, max_k+1)), clustering_errors)
+    plt.title("clustering error for different number of clusters")
+    plt.xlabel("number of clusters")
+    plt.ylabel("clustering error")
+    plt.show()
+
+
 class kmeans:
     def __init__(self, data: np.ndarray, k: int, iteration: int):
         self.data = data
@@ -64,9 +79,11 @@ class kmeans:
             norm = np.linalg.norm(self.data[final_clusters == i] - final_centers[i], axis=1)
             m = np.mean(norm, axis=0)
             cluster_errors[i] = m
-            print("cluster error for cluster {} is {}".format(self.colors[i], m))
+            # print("cluster error for cluster {} is {}".format(self.colors[i], m))
 
-        print("clustering error is {}".format(np.mean(cluster_errors)))
+        clustering_error = np.mean(cluster_errors)
+        print("clustering error is {}".format(clustering_error))
+        return clustering_error
 
     def show(self, final_clusters, final_centers):
         # plot data points
@@ -103,9 +120,8 @@ class kmeans:
 # scatter("Dataset2.csv")
 
 data1 = pd.read_csv("Dataset1.csv")
-obj1 = kmeans(data1.to_numpy(), 4, 20)
-clusters1, centers1 = obj1.cluster()
-obj1.show(clusters1, centers1)
+elbow(data1, 14)
+# obj1.show(clusters1, centers1)
 
 # print(data1.to_numpy())
 # kmeans(data1.to_numpy(), 4)

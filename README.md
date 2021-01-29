@@ -322,22 +322,21 @@ and for dataset2 we should use algorithms like DBSCAN.
 WOW!!! if you want to implement the k-means algorithm notice that using plus-plus algorithm for initializing centroids is 
 as important as hell and DOES increase the performance.
 
-3. calculating clustering error
+3-4. calculating clustering error
 This is the result of one run.
 ```shell
-blue
-1.3464853546619233
-green
-0.48700552442524053
-orange
-0.6325068182002177
-purple
-0.3932010909149059
+cluster error for cluster blue is 0.3248827689004398
+cluster error for cluster green is 0.3160088195773474
+cluster error for cluster orange is 0.3415297385741179
+cluster error for cluster purple is 0.31782962165200457
+clustering error is 0.32506273717597745
 ```
-4. clustering err is
-```shell
-0.7147996970505718
-```
+
+5.
+![clustering error for different number of clusters](images/elbow.png)
+
+6.
+according to the above picture the best number of clusters is 10.
 
 ![cluster error in k-means](images/kmeans-cluster-error.png)
    

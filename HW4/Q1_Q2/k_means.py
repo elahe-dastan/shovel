@@ -125,7 +125,7 @@ class kmeans:
 # clusters, centers = obj.cluster()
 # obj1.show(clusters1, centers1)
 
-data2 = pd.read_csv("Dataset2.csv")
-obj = kmeans(data2.to_numpy(), 3, 20)
-clusters, centers = obj.cluster()
-obj.show(clusters, centers)
+# data2 = pd.read_csv("Dataset2.csv")
+# obj = kmeans(data2.to_numpy(), 3, 20)
+# clusters, centers = obj.cluster()
+# obj.show(clusters, centers)

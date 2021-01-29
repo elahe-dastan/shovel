@@ -51,9 +51,9 @@ works but most of the time the dataset is huge and you may prefer more automatic
 1. Inter Quartile Range (IQR): Look at the code below 
 ```sh
 import numpy as np
-Q1 = np.quantile(data,0.25)
+Q1_Q2 = np.quantile(data,0.25)
 Q3 = np.quantile(data,0.75)
-IQR = Q3 - Q1
+IQR = Q3 - Q1_Q2
 ```
 2. Z-Score<br/>
 In any distribution, about 95% of values will be within 2 standard deviations of the mean and 99.7% of the data within 3.
@@ -342,5 +342,8 @@ according to the above picture the best number of clusters is 10.
 ![](images/dataset2k3.png)
 
 The shape of the clusters are not globular so k-means cannot perform well.
+
+# HW4 Q2
+
    
 # One time for always solve the problem SettingWithCopyWarning

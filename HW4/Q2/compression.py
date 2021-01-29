@@ -3,6 +3,7 @@ from copy import deepcopy
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
+from ..Q1.k_means import kmeans
 
 
 def kmeans(data: np.ndarray, k: int) -> [np.ndarray, np.ndarray]:

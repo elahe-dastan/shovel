@@ -305,7 +305,9 @@ data we have is not linearly separable.
 # HW4 Q1
 I want to implement k-means algorithm.<br/>
 1. Illustrating datasets
+
 ![dataset1 illustration](images/dataset1_illustration.png)
+
 ![dataset2 illustration](images/dataset2_illustration.png)
    
 Look at the pictures above, it's obvious that k-means can perform well on dataset1 but is not a good choice for dataset2,

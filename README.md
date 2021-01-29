@@ -390,6 +390,7 @@ The shape of the clusters are not globular so k-means cannot perform well.
 # HW4 Q2
 
 This is the original picture
+
 ![original image](images/sample_img1.png)
 
 and this is the image after color reduction using k-means with k=64

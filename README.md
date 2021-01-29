@@ -338,6 +338,9 @@ clustering error is 0.32506273717597745
 6.
 according to the above picture the best number of clusters is 10.
 
-![cluster error in k-means](images/kmeans-cluster-error.png)
+7.
+![](images/dataset2k3.png)
+
+The shape of the clusters are not globular so k-means cannot perform well.
    
 # One time for always solve the problem SettingWithCopyWarning

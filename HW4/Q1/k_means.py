@@ -119,9 +119,13 @@ class kmeans:
 # scatter("Dataset1.csv")
 # scatter("Dataset2.csv")
 
-data1 = pd.read_csv("Dataset1.csv")
-elbow(data1, 14)
+# data1 = pd.read_csv("Dataset1.csv")
+# elbow(data1, 14)
+# obj = kmeans(data1.to_numpy(), 4, 20)
+# clusters, centers = obj.cluster()
 # obj1.show(clusters1, centers1)
 
-# print(data1.to_numpy())
-# kmeans(data1.to_numpy(), 4)
+data2 = pd.read_csv("Dataset2.csv")
+obj = kmeans(data2.to_numpy(), 3, 20)
+clusters, centers = obj.cluster()
+obj.show(clusters, centers)

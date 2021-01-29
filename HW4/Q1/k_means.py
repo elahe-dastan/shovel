@@ -19,13 +19,13 @@ def scatter(dataset: str):
 
 def elbow(data, max_k: int):
     clustering_errors = np.zeros(max_k)
-    for k in range(1, max_k+1):
+    for k in range(1, max_k + 1):
         obj = kmeans(data.to_numpy(), k, 20)
         clusters, centers = obj.cluster()
         clustering_error = obj.clustering_error(clusters, centers)
         clustering_errors[k - 1] = clustering_error
 
-    plt.plot(np.array(range(1, max_k+1)), clustering_errors)
+    plt.plot(np.array(range(1, max_k + 1)), clustering_errors)
     plt.title("clustering error for different number of clusters")
     plt.xlabel("number of clusters")
     plt.ylabel("clustering error")
@@ -97,7 +97,7 @@ class kmeans:
         plt.ylabel("Y")
         plt.show()
 
-    def cluster(self):
+    def cluster(self) -> [np.ndarray, np.ndarray]:
         centers = self.plus_plus()
         centers_new = deepcopy(centers)
 

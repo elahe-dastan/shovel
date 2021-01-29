@@ -314,9 +314,13 @@ Look at the pictures above, it's obvious that k-means can perform well on datase
 and for dataset2 we should use algorithms like DBSCAN.
 
 2. Implement k-means algorithm
+
 ![k-means on dataset1 with k = 2](images/dataset1k2.png)
 ![k-means on dataset1 with k = 3](images/dataset1k3.png)
 ![k-means on dataset1 with k = 4](images/dataset1k4.png)
+
+WOW!!! if you want to implement the k-means algorithm notice that using plus-plus algorithm for initializing centroids is 
+as important as hell and DOES increase the performance.
 
 3. calculating clustering error
 This is the result of one run.

@@ -26,6 +26,27 @@ class kmeans:
         self.c = data.shape[1]  # number of features in the data
         self.colors = ['blue', 'green', 'orange', 'purple']
 
+    def plus_plus(self):
+        # Create cluster centroids using the k-means++ algorithm.
+        centroids = [self.data[0]]
+
+        for _ in range(1, self.k):
+            dist_sq = np.array([min([np.inner(c - x, c - x) for c in centroids]) for x in self.data])
+            probs = dist_sq / dist_sq.sum()
+            cumulative_probs = probs.cumsum()
+            r = np.random.rand()
+
+            i = 0
+            for j, p in enumerate(cumulative_probs):
+                if r < p:
+                    i = j
+                    break
+
+            centroids.append(self.data[i])
+
+        return np.array(centroids)
+
+    # It sometimes leads to an error because the cluster of an initial center may become empty
     def initial_centers(self):
         # Generate random centers using Gaussian distribution
         mean = np.mean(self.data, axis=0)
@@ -60,7 +81,7 @@ class kmeans:
         plt.show()
 
     def cluster(self):
-        centers = self.initial_centers()
+        centers = self.plus_plus()
         centers_new = deepcopy(centers)
 
         clusters = np.zeros(self.n)
@@ -82,7 +103,7 @@ class kmeans:
 # scatter("Dataset2.csv")
 
 data1 = pd.read_csv("Dataset1.csv")
-obj1 = kmeans(data1.to_numpy(), 2, 20)
+obj1 = kmeans(data1.to_numpy(), 4, 20)
 clusters1, centers1 = obj1.cluster()
 obj1.show(clusters1, centers1)
 

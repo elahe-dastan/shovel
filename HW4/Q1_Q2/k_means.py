@@ -123,7 +123,7 @@ class kmeans:
 # elbow(data1, 14)
 # obj = kmeans(data1.to_numpy(), 4, 20)
 # clusters, centers = obj.cluster()
-# obj1.show(clusters1, centers1)
+# obj.show(clusters, centers)
 
 # data2 = pd.read_csv("Dataset2.csv")
 # obj = kmeans(data2.to_numpy(), 3, 20)

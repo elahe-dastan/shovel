@@ -242,4 +242,7 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
+glove.6B.zip
 # End of https://www.toptal.com/developers/gitignore/api/intellij,python
+
+HW4/Q3/index.html

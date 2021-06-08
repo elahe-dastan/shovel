@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import k_means
 
-img = mpimg.imread('sample_img1.png')
+img = mpimg.imread('Q2-testcase.png')
 # converting image to two dimensional
 two_d_image = img.reshape(-1, 3)
 
-k = 64
+k = 4
 start_time = time.time()
 obj = k_means.kmeans(two_d_image, k, 40)
 clusters, centers = obj.cluster()
